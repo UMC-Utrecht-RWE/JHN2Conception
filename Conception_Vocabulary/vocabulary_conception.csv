@@ -1,0 +1,351 @@
+"column_name","value","description"
+"administration_dose_form","additive (unspecified)","A type of pharmaceutical dose form that may be liquid, semi-solid or solid, to be added to a large volume of diluent, such as in a bath."
+"administration_dose_form","block","A type of solid pharmaceutical dose form consisting of a large, compact mass, usually formed by compression of the component material into a cuboid or similar shape."
+"administration_dose_form","cachet","A type of solid pharmaceutical dose form consisting of a disc inside which a single dose of the active substance(s) is enclosed. Capsule is excluded."
+"administration_dose_form","capsule","A type of solid pharmaceutical dose form consisting of a shell inside which a single dose of the active substance(s) is enclosed. Cachet is excluded."
+"administration_dose_form","cement","A type of semi-solid pharmaceutical dose form that hardens after application to form a seal or bond."
+"administration_dose_form","collodion","A type of liquid pharmaceutical dose form usually consisting of a solution of pyroxylin in ether and ethanol."
+"administration_dose_form","concentrate","A type of liquid pharmaceutical dose form consisting of a concentrated preparation that must be diluted before administration."
+"administration_dose_form","cream","A type of semi-solid pharmaceutical dose form consisting of an oil-in-water or waterin-oil emulsion"
+"administration_dose_form","dispersion","A type of liquid pharmaceutical dose form consisting of one or more substances, excluding solid particles and large liquid droplets, that are dispersed in an appropriate liquid vehicle. Liposomes, microbubbles, cells and colloidal dispersions (droplets with a nominal diameter less than approximately 1 micrometre in size) are included; for solid particle dispersions, see 'Suspension'; for non-miscible, large-droplet liquid dispersions, see 'Emulsion'."
+"administration_dose_form","drops (unspecified)","A type of liquid pharmaceutical dose form that may be a dispersion, an emulsion, a solution or a suspension, and that is administered in small volumes by instillation; to be used only when further details of the specific form (e.g. dispersion, emulsion, solution, suspension) are unknown."
+"administration_dose_form","emulsion","A type of liquid pharmaceutical dose form consisting of a stable dispersion of nonmiscible liquids; it consists either of oil droplets in an aqueous continuous phase (oil-inwater emulsion) or aqueous droplets in an oily continuous phase (water-in-oil emulsion); for colloidal dispersions (droplets with a nominal diameter less than approximately 1 micrometre in size), see 'Dispersion'."
+"administration_dose_form","film","A type of solid pharmaceutical dose form consisting of a thin, single- or multilayer sheet of material, which usually dissolves or otherwise dissipates in an aqueous environment."
+"administration_dose_form","foam","A type of semi-solid pharmaceutical dose form consisting of a large volume of gas dispersed in a liquid or sometimes a solid phase."
+"administration_dose_form","gel","A type of semi-solid pharmaceutical dose form consisting of a colloidal dispersion of a liquid in a solid; lipophilic gels (oleogels) usually consist of liquid paraffin with polyethylene or fatty oils gelled with colloidal silica or aluminium or zinc soaps; hydrophilic gels (hydrogels) usually consists of water, glycerol or propylene glycol gelled with suitable gelling agents such as poloxamers, starch, cellulose derivatives, carbomers and magnesium-aluminium silicates."
+"administration_dose_form","granules","A type of solid pharmaceutical dose form consisting of dry aggregates of powder particles that are sufficiently resistant to withstand handling"
+"administration_dose_form","gum","A type of solid pharmaceutical dose form consisting of a basis composed of gum(s) or with a gum-like consistency."
+"administration_dose_form","herbal material (unprocessed)","A type of solid pharmaceutical dose form consisting of whole, broken or fragmented plants or parts of plants (including algae, fungi, lichen) in an unprocessed state, and which may be dried or fresh. Teas, as well as preparations that are processed or formulated into capsules, granules, powders, etc., are excluded."
+"administration_dose_form","implant","A type of solid pharmaceutical dose form consisting of a mass with a size and shape suitable for implantation, allowing release of active substance(s) over an extended period of time"
+"administration_dose_form","impregnated material","A type of solid pharmaceutical dose form consisting of a material onto or into which active substance(s) are absorbed for subsequent release after administration, often over an extended period of time."
+"administration_dose_form","insert","A type of solid pharmaceutical dose form consisting of a material of an appropriate shape and size to be placed inside an orifice of the body, and which dissolves or disintegrates over time. Pessaries and suppositories are excluded."
+"administration_dose_form","lacquer","A type of liquid pharmaceutical dose form consisting of one or more substances dissolved or suspended in a volatile solvent that evaporates to leave a hard coating."
+"administration_dose_form","liquid","A type of liquid pharmaceutical dose form consisting of a pure substance in a liquid state"
+"administration_dose_form","lozenge","A type of solid pharmaceutical dose form consisting of a hard mass formed by moulding or compression, intended to dissolve or disintegrate slowly in the oral cavity when sucked."
+"administration_dose_form","lyophilisate","A type of solid pharmaceutical dose form consisting of a powder or disc formed by freeze-drying of a liquid or semi-solid preparation. When referring to a powder, the use of this term is restricted to veterinary medicines."
+"administration_dose_form","medicinal gas","A type of gaseous pharmaceutical dose form consisting of a pure substance or mixture of substances that exist in the form of a gas at normal atmospheric pressure and room temperature."
+"administration_dose_form","ointment","A type of semi-solid pharmaceutical dose form consisting of a single-phase basis in which solids or liquids may be dispersed; ointments may be composed of a variety of bases including hydrocarbons, emulsifiers, vegetable oils and animal fats; they may be hydrophobic (bases made from substances such as hard, liquid, or light liquid paraffins, vegetable oils, animal fats, synthetic glycerides, waxes and liquid polyalkylsiloxanes, and which are only able to absorb a small amount of water), hydrophilic (with a watermiscible basis, usually a mixture of liquid and solid macrogols) or water-emulsifying (capable of absorbing larger amounts of water and forming emulsions, with bases containing water-in-oil emulsifiers such as wool alcohols, sorbitan esters, monoglycerides and fatty alcohols, or oil-in-water emulsifiers such as sulfated fatty alcohols, polysorbates, macrogol cetostearyl ether, esters of fatty acids with macrogols)."
+"administration_dose_form","paste","A type of semi-solid pharmaceutical dose form consisting of a large proportion of solid particles dispersed in a hydrophobic or hydrophilic basis."
+"administration_dose_form","pastille","A type of solid pharmaceutical dose form consisting of a soft, flexible mass formed by moulding, intended to dissolve or disintegrate slowly in the oral cavity when sucked."
+"administration_dose_form","patch","A type of solid pharmaceutical dose form consisting of a flexible preparation, with an adhesive layer and a reservoir of active substance(s) that is usually behind a semipermeable membrane. Plasters are excluded."
+"administration_dose_form","pellets","A type of solid pharmaceutical dose form consisting of usually cylindrical masses, usually formed by extrusion."
+"administration_dose_form","pessary","A type of solid pharmaceutical dose form consisting of a material that is usually ovoid and formed by moulding, of a suitable volume and consistency for insertion into the vagina where it dissolves, disperses or melts."
+"administration_dose_form","pillules","A type of solid pharmaceutical dose form consisting of small spheroids that are sufficiently resistant to withstand handling, used for homoepathic medicine."
+"administration_dose_form","plaster","A type of solid pharmaceutical dose form consisting of a flexible preparation with an adhesive layer containing active substance(s). Patches are excluded."
+"administration_dose_form","pouch","A type of solid pharmaceutical dose form that consists of a small bag that is intended to be placed in a body cavity for release of the active substance(s) contained within."
+"administration_dose_form","poultice","A type of semi-solid pharmaceutical dose form consisting of a moist mass, such as meal, herbs, seeds, etc., usually held within or spread upon an appropriate permeable material or dressing."
+"administration_dose_form","powder","A type of solid pharmaceutical dose form consisting of dry, finely divided, loose particles, or freeze-dried preparations thereof."
+"administration_dose_form","premix (unspecified)","A type of specialised pharmaceutical dose form that is used in the preparation of products such as medicated feeding stuffs"
+"administration_dose_form","radiopharmaceutical","A type of specialised pharmaceutical dose form that is used in the preparation of radiopharmaceuticals."
+"administration_dose_form","shampoo","A type of liquid (or occasionally semi-solid) pharmaceutical dose form that contains surface-active agents and usually forms a foam after rubbing on the scalp with water."
+"administration_dose_form","solution","A type of liquid pharmaceutical dose form consisting of one or more substances dissolved in, or miscible with, an appropriate solvent, forming a single-phase liquid"
+"administration_dose_form","solvent","A type of liquid pharmaceutical dose form consisting of a vehicle that contains no active ingredient itself, and is used to dissolve, disperse or dilute another product."
+"administration_dose_form","spray (unspecified)","A type of pharmaceutical dose form that may be liquid, semi-solid or solid, administered as a dispersion in air; to be used only when further details of the specific form (e.g. solution, suspension, powder) are unknown"
+"administration_dose_form","stick","A type of solid pharmaceutical dose form consisting of a preparation usually in a cylindrical or conical shape, usually prepared by compression or moulding, intended for insertion in or application to a specific area of the body."
+"administration_dose_form","suppository","A type of solid pharmaceutical dose form consisting of a material that is usually formed by moulding, of a suitable shape, volume and consistency for insertion into the rectum where it dissolves, disperses or melts"
+"administration_dose_form","suspension","A type of liquid pharmaceutical dose form consisting of one or more substances dispersed in a liquid vehicle; the dispersed substance(s) are solid particles that are practically insoluble in the vehicle."
+"administration_dose_form","syrup","A type of liquid pharmaceutical dose form consisting of a viscous liquid usually with a high concentration of sugar or other sweetening agent."
+"administration_dose_form","system","A type of pharmaceutical dose form consisting of one or more components that are used to deliver active substance(s) in a specified manner, usually with a modified release mechanism, after administration to a specified location on or in the body; to be used only where more specific terms are not applicable"
+"administration_dose_form","tablet","A type of solid pharmaceutical dose form consisting of a mass that is formed by compression of uniform volumes of particulate solids, or by other means such as extrusion or moulding."
+"administration_dose_form","tea","A type of solid pharmaceutical dose form consisting of one or more herbal drugs intended for preparation of a solution by decoction or maceration, or a lyophilised preparation of such a solution."
+"administration_dose_form","unknown","The type of pharmaceutical dose form is unknown, or has unspecified or variable physical characteristics."
+"administration_route","implant","Implant"
+"administration_route","inhal","Inhalation"
+"administration_route","instill","Instillation"
+"administration_route","N","nasal"
+"administration_route","O","oral"
+"administration_route","P","parenteral"
+"administration_route","R","rectal"
+"administration_route","SL","sublingual/buccal/oromucosal"
+"administration_route","TD","transdermal"
+"administration_route","V","vaginal"
+"country_of_birth","ISO 3166-2","ISO standard"
+"data_access_provider_code","01","University of Oslo (UOSL)"
+"data_access_provider_code","04","University of Aarhus"
+"data_access_provider_code","05","University of Dundee"
+"data_access_provider_code","07","University of Ulster (ULST)"
+"data_access_provider_code","08","Centre Hospitalier Universitaire de Toulouse (CHUT)"
+"data_access_provider_code","10.0","University of Bordeaux"
+"data_access_provider_code","11.0","University Medical Center Groningen (UMCG)"
+"data_access_provider_code","13.0","PHARMO institute"
+"data_access_provider_code","15.0","Leibniz Institute for Prevention Research and Epidemiology (BIPS)"
+"data_access_provider_code","18.0","Fundación para el Fomento de la Investigación Sanitaria y Biomédica de la Comunitat Valenciana (FISABIO)"
+"data_access_provider_code","19.0","IDIAP-Jordi Gol"
+"data_access_provider_code","20.0","Università degli Studi di Ferrara – University of Ferrara (FERR)"
+"data_access_provider_code","21.0","CNR Tuscany (CNR-IFC)"
+"data_access_provider_code","22.0","Agenzia regionale di sanità della Toscana (ARS)"
+"data_access_provider_code","23.0","University of Messina"
+"data_access_provider_code","24.0","Malta Congenital Anomalies Registry, Directorate for Health Information and Research"
+"data_access_provider_code","27.0","Malformation Monitoring Centre Saxony-Anhalt Medical Faculty, Otto-von-Guericke University (OVGU)"
+"data_access_provider_code","33.0","National Institute for Health and Welfare, Finland (NIHW)"
+"data_access_provider_code","34.0","University of Swansea (USWAN)"
+"data_access_provider_code","35.0","GlaxoSmithKline (GSK)"
+"data_access_provider_code","36.0","Agencia Española de Medicamentos y Productos Sanitarios"
+"data_access_provider_code","37.0","Pedianet - SOSETE"
+"data_access_provider_code","38.0","University of Utrecht (UU)"
+"data_access_provider_name","UOSL","University of Oslo (UOSL)"
+"data_access_provider_name","Aarhus","University of Aarhus"
+"data_access_provider_name","Dundee","University of Dundee"
+"data_access_provider_name","ULST","University of Ulster (ULST)"
+"data_access_provider_name","CHUT","Centre Hospitalier Universitaire de Toulouse (CHUT)"
+"data_access_provider_name","Bordeaux","University of Bordeaux"
+"data_access_provider_name","UMCG","University Medical Center Groningen (UMCG)"
+"data_access_provider_name","PHARMO","PHARMO institute"
+"data_access_provider_name","BIPS","Leibniz Institute for Prevention Research and Epidemiology (BIPS)"
+"data_access_provider_name","FISABIO","Fundación para el Fomento de la Investigación Sanitaria y Biomédica de la Comunitat Valenciana (FISABIO)"
+"data_access_provider_name","SIDIAP","IDIAP-Jordi Gol"
+"data_access_provider_name","FERR","Università degli Studi di Ferrara – University of Ferrara (FERR)"
+"data_access_provider_name","CNR-IFC","CNR Tuscany (CNR-IFC)"
+"data_access_provider_name","ARS","Agenzia regionale di sanità della Toscana (ARS)"
+"data_access_provider_name","Messina","University of Messina"
+"data_access_provider_name","Malta","Malta Congenital Anomalies Registry, Directorate for Health Information and Research"
+"data_access_provider_name","OVGU","Malformation Monitoring Centre Saxony-Anhalt Medical Faculty, Otto-von-Guericke University (OVGU)"
+"data_access_provider_name","NIHW","National Institute for Health and Welfare, Finland (NIHW)"
+"data_access_provider_name","USWAN","University of Swansea (USWAN)"
+"data_access_provider_name","GSK","GlaxoSmithKline (GSK)"
+"data_access_provider_name","AEMPS","Agencia Española de Medicamentos y Productos Sanitarios"
+"data_access_provider_name","PEDIANET","PEDIANET"
+"data_access_provider_name","UU","University of Utrecht (UU)"
+"disp_amount_drug_unit","package","one package of a medicinal product, possibly containing many dosage units"
+"disp_amount_drug_unit","dosage_units","items of the medicinal formulation, if appropriate (eg, pills, or vials, or bags) "
+"meaning_of_drug_record","dispensing_in_community_pharmacy","a dispensing that takes place in a pharmacy that is not part of a hospital"
+"meaning_of_drug_record","dispensing_in_hospital_pharmacy_for_home_use","a dispensing that takes place in a pharmacy that is part of a hospital, of a drug that the patient is bringing home"
+"meaning_of_drug_record","dispensing_in_hospital_pharmacy_for_oupatient_use","a dispensing that takes place in a pharmacy that is part of a hospital, to an ambulatory of the same hospital for administration to the patient in a outpatient hospital setting"
+"meaning_of_drug_record","dispensing_in_hospital_pharmacy_for_inpatient_use","a dispensing that takes place in a pharmacy that is part of a hospital, to a hospital ward for a patient that is hospitalised"
+"meaning_of_drug_record","dispensing_in_hospital_pharmacy_unspecified","a dispensing that takes place in a pharmacy that is part of a hospital, but it is not recorded which entity is the receiver of the drug and where it will be administered to the patient"
+"meaning_of_event","hospitalisation_primary","primary hospital diagnosis"
+"meaning_of_event","hospitalisation_secondary","secondary hospital diagnosis"
+"meaning_of_event","cause_of_death",NA
+"meaning_of_event","underlying_cause_of_death",NA
+"meaning_of_event","hospital_diagnosis","hospital diagnosis, unspecified whether primary or not"
+"meaning_of_event","reason_for specialist_encounter","reason for a specialist encounter"
+"meaning_of_event","specialist_diagnosis","diagnosis after a specialist encounter"
+"meaning_of_event","exemption","exemption from copayment"
+"meaning_of_event","primary_care_event","event recoded after a primary care encounter, irrespective of whether it is a sign, a symptom, or a diagnosis"
+"meaning_of_event","primary_care_diagnosis","diagnosis after a primary care encounter"
+"meaning_of_event","symptom","symptom reported by a patient"
+"meaning_of_event","sign","sign observed in a primary care encounter"
+"meaning_of_event","emergency_room_diagnosis","diagnosis during a emergency room visit"
+"meaning_of_event","emergency_room_presentation","description of status of patient at entrance to a emergency room"
+"meaning_of_procedure","italian_outpatient","Italy has a national list of procedures, diagnostic tests, rehabilitation and therapeutic procedures whose reimbursement is granted to all legal residents. "
+"meaning_of_procedure","procedure_during_hospitalisation","survery or other procedure administered during a hosptalisation"
+"meaning_of_relationship","birth_mother","the woman who gave birth to the person"
+"meaning_of_relationship","adoptive_mother","a woman who raises the person as a parent, but is not the gestational nor the genetic mother"
+"meaning_of_relationship","genetic_mother","the woman whose ovum generated the person (if it's different from the birth mother)"
+"meaning_of_relationship","undefined_mother","a woman with a parental relationship with the person, unpecified whether she is adoptive or biologic (birth and/or genetic)"
+"meaning_of_relationship","adoptive_father","a man who raises the person as a parent, but is not the genetic father"
+"meaning_of_relationship","genetic_father","the man whose semen generated the person"
+"meaning_of_relationship","undefined_father","a man with a parental relationship with the person, unpecified whether he is adoptive or biologic"
+"meaning_of_relationship","adoptive_parent","a person who raises the person person_id as a parent, but is not a genetic parent"
+"meaning_of_relationship","genetic_parent","a person who a genetic parent of person_id"
+"meaning_of_relationship","undefined_parent","a person with a parental relationship with person_id, unpecified whether  adoptive or biologic"
+"meaning_of_visit","hospitalisation","hospitalisation with an assigned bed"
+"meaning_of_visit","hospitalisation_not_overnight","hospitalisation where there is no overnight stay foreseen"
+"meaning_of_visit","oupatient_specialist_visit","visit with a specialist, outside of a hospitalisation"
+"meaning_of_vx_record","dispensing_in_community_pharmacy","a dispensing that takes place in a pharmacy that is not part of a hospital"
+"meaning_of_vx_record","dispensing_in_hospital_pharmacy","a dispensing that takes place in a pharmacy that is part of a hospital, but it is not recorded which entity is the receiver of the drug and where it will be administered to the patient"
+"meaning_of_vx_record","administration_at_general_practitioner","an administration that takes place at a visit to a general practitioner"
+"meaning_of_vx_record","administration_at_mass_vaccination","an administration that takes place during a mass vaccination campaign at a site not typically utilized for healthcare"
+"meaning_of_vx_record","administration_at_place_of_employment","an administration that takes place at a place of employment"
+"method_of_linkage","deterministic","the information was obtained from deterministic record linkage"
+"method_of_linkage","probabilistic","the information was obtained from probabilistic record linkage"
+"mo_meaning","pathology_report","Report from a sample of the body"
+"mo_meaning","mo_in_hospital_admission","An observation executed during a hospital admission"
+"op_meaning","legal_resident","being legally resident in a geographic area that entitles to healthcare services"
+"op_meaning","enlisted_with_GP","being enlisted with one of the GPs that contribute to the datasource"
+"op_meaning","enrolled_with_payer","being enrolled with a healthcare insurance or other payer whose data are accessed"
+"op_meaning","assisted_by_healthcare_provider","being in the care of one of the healthcare providers that provide data to the datasource"
+"op_meaning","undergoing_pregnancy","being recorded as having a pregnancy"
+"op_meaning","delivery","being recorded as having a delivery"
+"op_meaning","inclusion_in_a_cohort","being included in a study that contributes data to the datasource"
+"op_meaning","inclusion_in_a_surveillance","being included in a surveillance that contributes data to the datasource"
+"presc_quantity_units","Actuation",NA
+"presc_quantity_units","Additive (unspecified)","A type of pharmaceutical dose form that may be liquid, semi-solid or solid, to be added to a large volume of diluent, such as in a bath."
+"presc_quantity_units","Ampoule",NA
+"presc_quantity_units","Applicator",NA
+"presc_quantity_units","Bag",NA
+"presc_quantity_units","Barrel",NA
+"presc_quantity_units","Blister",NA
+"presc_quantity_units","Block","A type of solid pharmaceutical dose form consisting of a large, compact mass, usually formed by compression of the component material into a cuboid or similar shape."
+"presc_quantity_units","Bottle",NA
+"presc_quantity_units","Cachet","A type of solid pharmaceutical dose form consisting of a disc inside which a single dose of the active substance(s) is enclosed. Capsule is excluded."
+"presc_quantity_units","Capsule","A type of solid pharmaceutical dose form consisting of a shell inside which a single dose of the active substance(s) is enclosed. Cachet is excluded."
+"presc_quantity_units","Cartridge",NA
+"presc_quantity_units","Cement","A type of semi-solid pharmaceutical dose form that hardens after application to form a seal or bond."
+"presc_quantity_units","Chewing gum",NA
+"presc_quantity_units","Collar",NA
+"presc_quantity_units","Collodion","A type of liquid pharmaceutical dose form usually consisting of a solution of pyroxylin in ether and ethanol."
+"presc_quantity_units","Concentrate","A type of liquid pharmaceutical dose form consisting of a concentrated preparation that must be diluted before administration."
+"presc_quantity_units","Container",NA
+"presc_quantity_units","Cream","A type of semi-solid pharmaceutical dose form consisting of an oil-in-water or waterin-oil emulsion"
+"presc_quantity_units","Cup",NA
+"presc_quantity_units","Cylinder",NA
+"presc_quantity_units","Dart",NA
+"presc_quantity_units","Dispersion","A type of liquid pharmaceutical dose form consisting of one or more substances, excluding solid particles and large liquid droplets, that are dispersed in an appropriate liquid vehicle. Liposomes, microbubbles, cells and colloidal dispersions (droplets with a nominal diameter less than approximately 1 micrometre in size) are included; for solid particle dispersions, see 'Suspension'; for non-miscible, large-droplet liquid dispersions, see 'Emulsion'."
+"presc_quantity_units","Dressing",NA
+"presc_quantity_units","Drops (unspecified)","A type of liquid pharmaceutical dose form that may be a dispersion, an emulsion, a solution or a suspension, and that is administered in small volumes by instillation; to be used only when further details of the specific form (e.g. dispersion, emulsion, solution, suspension) are unknown."
+"presc_quantity_units","Emulsion","A type of liquid pharmaceutical dose form consisting of a stable dispersion of nonmiscible liquids; it consists either of oil droplets in an aqueous continuous phase (oil-inwater emulsion) or aqueous droplets in an oily continuous phase (water-in-oil emulsion); for colloidal dispersions (droplets with a nominal diameter less than approximately 1 micrometre in size), see 'Dispersion'."
+"presc_quantity_units","Film","A type of solid pharmaceutical dose form consisting of a thin, single- or multilayer sheet of material, which usually dissolves or otherwise dissipates in an aqueous environment."
+"presc_quantity_units","Foam","A type of semi-solid pharmaceutical dose form consisting of a large volume of gas dispersed in a liquid or sometimes a solid phase."
+"presc_quantity_units","g","gram"
+"presc_quantity_units","Gel","A type of semi-solid pharmaceutical dose form consisting of a colloidal dispersion of a liquid in a solid; lipophilic gels (oleogels) usually consist of liquid paraffin with polyethylene or fatty oils gelled with colloidal silica or aluminium or zinc soaps; hydrophilic gels (hydrogels) usually consists of water, glycerol or propylene glycol gelled with suitable gelling agents such as poloxamers, starch, cellulose derivatives, carbomers and magnesium-aluminium silicates."
+"presc_quantity_units","Granules","A type of solid pharmaceutical dose form consisting of dry aggregates of powder particles that are sufficiently resistant to withstand handling"
+"presc_quantity_units","Gum","A type of solid pharmaceutical dose form consisting of a basis composed of gum(s) or with a gum-like consistency."
+"presc_quantity_units","Herbal material (unprocessed)","A type of solid pharmaceutical dose form consisting of whole, broken or fragmented plants or parts of plants (including algae, fungi, lichen) in an unprocessed state, and which may be dried or fresh. Teas, as well as preparations that are processed or formulated into capsules, granules, powders, etc., are excluded."
+"presc_quantity_units","Implant","A type of solid pharmaceutical dose form consisting of a mass with a size and shape suitable for implantation, allowing release of active substance(s) over an extended period of time"
+"presc_quantity_units","Impregnated material","A type of solid pharmaceutical dose form consisting of a material onto or into which active substance(s) are absorbed for subsequent release after administration, often over an extended period of time."
+"presc_quantity_units","Inhaler",NA
+"presc_quantity_units","Insert","A type of solid pharmaceutical dose form consisting of a material of an appropriate shape and size to be placed inside an orifice of the body, and which dissolves or disintegrates over time. Pessaries and suppositories are excluded."
+"presc_quantity_units","Jar",NA
+"presc_quantity_units","Lacquer","A type of liquid pharmaceutical dose form consisting of one or more substances dissolved or suspended in a volatile solvent that evaporates to leave a hard coating."
+"presc_quantity_units","Liquid","A type of liquid pharmaceutical dose form consisting of a pure substance in a liquid state"
+"presc_quantity_units","Lozenge","A type of solid pharmaceutical dose form consisting of a hard mass formed by moulding or compression, intended to dissolve or disintegrate slowly in the oral cavity when sucked."
+"presc_quantity_units","Lyophilisate","A type of solid pharmaceutical dose form consisting of a powder or disc formed by freeze-drying of a liquid or semi-solid preparation. When referring to a powder, the use of this term is restricted to veterinary medicines."
+"presc_quantity_units","Matrix",NA
+"presc_quantity_units","mcg","microgram"
+"presc_quantity_units","Medicinal gas","A type of gaseous pharmaceutical dose form consisting of a pure substance or mixture of substances that exist in the form of a gas at normal atmospheric pressure and room temperature."
+"presc_quantity_units","mg","milligram"
+"presc_quantity_units","ml","millilitre (e.g. ey drops)"
+"presc_quantity_units","mmol","millimole"
+"presc_quantity_units","MU","million units"
+"presc_quantity_units","Ointment","A type of semi-solid pharmaceutical dose form consisting of a single-phase basis in which solids or liquids may be dispersed; ointments may be composed of a variety of bases including hydrocarbons, emulsifiers, vegetable oils and animal fats; they may be hydrophobic (bases made from substances such as hard, liquid, or light liquid paraffins, vegetable oils, animal fats, synthetic glycerides, waxes and liquid polyalkylsiloxanes, and which are only able to absorb a small amount of water), hydrophilic (with a watermiscible basis, usually a mixture of liquid and solid macrogols) or water-emulsifying (capable of absorbing larger amounts of water and forming emulsions, with bases containing water-in-oil emulsifiers such as wool alcohols, sorbitan esters, monoglycerides and fatty alcohols, or oil-in-water emulsifiers such as sulfated fatty alcohols, polysorbates, macrogol cetostearyl ether, esters of fatty acids with macrogols)."
+"presc_quantity_units","Pad",NA
+"presc_quantity_units","Paper",NA
+"presc_quantity_units","Paste","A type of semi-solid pharmaceutical dose form consisting of a large proportion of solid particles dispersed in a hydrophobic or hydrophilic basis."
+"presc_quantity_units","Pastille","A type of solid pharmaceutical dose form consisting of a soft, flexible mass formed by moulding, intended to dissolve or disintegrate slowly in the oral cavity when sucked."
+"presc_quantity_units","Patch","A type of solid pharmaceutical dose form consisting of a flexible preparation, with an adhesive layer and a reservoir of active substance(s) that is usually behind a semipermeable membrane. Plasters are excluded."
+"presc_quantity_units","Pellets","A type of solid pharmaceutical dose form consisting of usually cylindrical masses, usually formed by extrusion."
+"presc_quantity_units","Pen",NA
+"presc_quantity_units","Pendant",NA
+"presc_quantity_units","Pessary","A type of solid pharmaceutical dose form consisting of a material that is usually ovoid and formed by moulding, of a suitable volume and consistency for insertion into the vagina where it dissolves, disperses or melts."
+"presc_quantity_units","Pillules","A type of solid pharmaceutical dose form consisting of small spheroids that are sufficiently resistant to withstand handling, used for homoepathic medicine."
+"presc_quantity_units","Pipette",NA
+"presc_quantity_units","Plaster","A type of solid pharmaceutical dose form consisting of a flexible preparation with an adhesive layer containing active substance(s). Patches are excluded."
+"presc_quantity_units","Plug",NA
+"presc_quantity_units","Pouch","A type of solid pharmaceutical dose form that consists of a small bag that is intended to be placed in a body cavity for release of the active substance(s) contained within."
+"presc_quantity_units","Poultice","A type of semi-solid pharmaceutical dose form consisting of a moist mass, such as meal, herbs, seeds, etc., usually held within or spread upon an appropriate permeable material or dressing."
+"presc_quantity_units","Powder","A type of solid pharmaceutical dose form consisting of dry, finely divided, loose particles, or freeze-dried preparations thereof."
+"presc_quantity_units","Premix (unspecified)","A type of specialised pharmaceutical dose form that is used in the preparation of products such as medicated feeding stuffs"
+"presc_quantity_units","Puff",NA
+"presc_quantity_units","Radiopharmaceutical","A type of specialised pharmaceutical dose form that is used in the preparation of radiopharmaceuticals."
+"presc_quantity_units","Sachet",NA
+"presc_quantity_units","Shampoo","A type of liquid (or occasionally semi-solid) pharmaceutical dose form that contains surface-active agents and usually forms a foam after rubbing on the scalp with water."
+"presc_quantity_units","Solution","A type of liquid pharmaceutical dose form consisting of one or more substances dissolved in, or miscible with, an appropriate solvent, forming a single-phase liquid"
+"presc_quantity_units","Solvent","A type of liquid pharmaceutical dose form consisting of a vehicle that contains no active ingredient itself, and is used to dissolve, disperse or dilute another product."
+"presc_quantity_units","Sponge",NA
+"presc_quantity_units","Spoonful",NA
+"presc_quantity_units","Spray (unspecified)","A type of pharmaceutical dose form that may be liquid, semi-solid or solid, administered as a dispersion in air; to be used only when further details of the specific form (e.g. solution, suspension, powder) are unknown"
+"presc_quantity_units","Stick","A type of solid pharmaceutical dose form consisting of a preparation usually in a cylindrical or conical shape, usually prepared by compression or moulding, intended for insertion in or application to a specific area of the body."
+"presc_quantity_units","Straw",NA
+"presc_quantity_units","Strip",NA
+"presc_quantity_units","Suppository","A type of solid pharmaceutical dose form consisting of a material that is usually formed by moulding, of a suitable shape, volume and consistency for insertion into the rectum where it dissolves, disperses or melts"
+"presc_quantity_units","Suspension","A type of liquid pharmaceutical dose form consisting of one or more substances dispersed in a liquid vehicle; the dispersed substance(s) are solid particles that are practically insoluble in the vehicle."
+"presc_quantity_units","Syringe",NA
+"presc_quantity_units","Syrup","A type of liquid pharmaceutical dose form consisting of a viscous liquid usually with a high concentration of sugar or other sweetening agent."
+"presc_quantity_units","System","A type of pharmaceutical dose form consisting of one or more components that are used to deliver active substance(s) in a specified manner, usually with a modified release mechanism, after administration to a specified location on or in the body; to be used only where more specific terms are not applicable"
+"presc_quantity_units","Tablet","A type of solid pharmaceutical dose form consisting of a mass that is formed by compression of uniform volumes of particulate solids, or by other means such as extrusion or moulding."
+"presc_quantity_units","Tag",NA
+"presc_quantity_units","Tampon",NA
+"presc_quantity_units","Tea","A type of solid pharmaceutical dose form consisting of one or more herbal drugs intended for preparation of a solution by decoction or maceration, or a lyophilised preparation of such a solution."
+"presc_quantity_units","Thread",NA
+"presc_quantity_units","TU","thousand units"
+"presc_quantity_units","Tube",NA
+"presc_quantity_units","U","unit"
+"presc_quantity_units","Unknown","The type of pharmaceutical dose form is unknown, or has unspecified or variable physical characteristics."
+"presc_quantity_units","Vessel",NA
+"presc_quantity_units","Vial",NA
+"quality","reliable","the information about the person is considered to be reliable"
+"sex_at_instance_creation","M","male sex"
+"sex_at_instance_creation","F","female sex"
+"sex_at_instance_creation","O","other sex"
+"sex_at_instance_creation","undetermined","undetermined sex"
+"sex_at_instance_creation","unknown","sex unknown"
+"so_meaning","birth_registry",NA
+"so_meaning","induced_termination_registry",NA
+"so_meaning","spontaneous_abortion_registry",NA
+"so_meaning","8days_CHUT_questionnaire",NA
+"so_meaning","9months_CHUT_questionnaire",NA
+"so_meaning","24months_CHUT_questionnaire",NA
+"so_meaning","death_registry",NA
+"survey_meaning","birth_registry",NA
+"survey_meaning","induced_termination_registry",NA
+"survey_meaning","spontaneous_abortion_registry",NA
+"survey_meaning","8days_CHUT_questionnaire",NA
+"survey_meaning","9months_CHUT_questionnaire",NA
+"survey_meaning","24months_CHUT_questionnaire",NA
+"survey_meaning","death_registry",NA
+"unit_of_presentation_type","actuation",NA
+"unit_of_presentation_type","ampoule",NA
+"unit_of_presentation_type","applicator",NA
+"unit_of_presentation_type","bag",NA
+"unit_of_presentation_type","barrel",NA
+"unit_of_presentation_type","blister",NA
+"unit_of_presentation_type","block",NA
+"unit_of_presentation_type","bottle",NA
+"unit_of_presentation_type","cachet",NA
+"unit_of_presentation_type","capsule",NA
+"unit_of_presentation_type","cartridge",NA
+"unit_of_presentation_type","chewing gum",NA
+"unit_of_presentation_type","collar",NA
+"unit_of_presentation_type","container",NA
+"unit_of_presentation_type","cup",NA
+"unit_of_presentation_type","cylinder",NA
+"unit_of_presentation_type","dart",NA
+"unit_of_presentation_type","dressing",NA
+"unit_of_presentation_type","drop",NA
+"unit_of_presentation_type","film",NA
+"unit_of_presentation_type","implant",NA
+"unit_of_presentation_type","inhaler",NA
+"unit_of_presentation_type","insert",NA
+"unit_of_presentation_type","jar",NA
+"unit_of_presentation_type","lozenge",NA
+"unit_of_presentation_type","lyophilisate",NA
+"unit_of_presentation_type","matrix",NA
+"unit_of_presentation_type","pad",NA
+"unit_of_presentation_type","paper",NA
+"unit_of_presentation_type","pastille",NA
+"unit_of_presentation_type","patch",NA
+"unit_of_presentation_type","pen",NA
+"unit_of_presentation_type","pendant",NA
+"unit_of_presentation_type","pessary",NA
+"unit_of_presentation_type","pillule",NA
+"unit_of_presentation_type","pipette",NA
+"unit_of_presentation_type","plaster",NA
+"unit_of_presentation_type","plug",NA
+"unit_of_presentation_type","pouch",NA
+"unit_of_presentation_type","puff",NA
+"unit_of_presentation_type","sachet",NA
+"unit_of_presentation_type","sponge",NA
+"unit_of_presentation_type","spoonful",NA
+"unit_of_presentation_type","stick",NA
+"unit_of_presentation_type","straw",NA
+"unit_of_presentation_type","strip",NA
+"unit_of_presentation_type","suppository",NA
+"unit_of_presentation_type","syringe",NA
+"unit_of_presentation_type","system",NA
+"unit_of_presentation_type","tablet",NA
+"unit_of_presentation_type","tag",NA
+"unit_of_presentation_type","tampon",NA
+"unit_of_presentation_type","thread",NA
+"unit_of_presentation_type","tube",NA
+"unit_of_presentation_type","vessel",NA
+"unit_of_presentation_type","vial",NA
+"vx_dose","1.0","1st dose"
+"vx_dose","2.0","2nd dose"
+"vx_dose","3.0","3rd dose"
+"vx_dose","B","Booster dose"
+"vx_dose","T","Travel vaccination"
+"vx_dose","C","Clinical trial exposure"
+"vx_manufacturer","gsk","GlaxoSmithKline"
+"vx_manufacturer","sanofi","Sanofi"
+"vx_manufacturer","novartis","Novartis"
+"vx_manufacturer","merck","Merck"
+"vx_manufacturer","pfizer","Pfizer"
+"vx_manufacturer","novavax","Novavax"
+"vx_manufacturer","emergent","Emergent Bio Solutions"
+"vx_manufacturer","csl","CSL"
+"vx_manufacturer","inovio","Inovio"
+"vx_manufacturer","bavarian","Bavarian Nordic"
+"vx_manufacturer","mitsubishi","Mitsubishi Tanabe"
+"vx_manufacturer","aventis","Aventis Pasteur"
+"vx_manufacturer","wyeth","Wyeth Pharmaceuticals"

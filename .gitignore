@@ -1,0 +1,12 @@
+# .gitignore
+Data\ characterisation/
+Duck_Database/
+Output/
+R-scripts/Archive/
+R-scripts/Poging_via_R/
+SQL-scripts/Archive/
+SQL-scripts/Uitzoekwerk/
+Rest/
+.Rproj.user/
+.Rhistory
+
