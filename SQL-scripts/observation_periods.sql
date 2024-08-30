@@ -12,7 +12,7 @@ SELECT
 			WHEN Uitschrijfreden = 'I' THEN 'Verpleeghuis / inrichting'
 			WHEN Uitschrijfreden = 'Q' THEN 'Overig'
 			WHEN Uitschrijfreden = 'X' THEN 'Onbekend'
-			ELSE Uitschrijfreden
+			ELSE COALESCE(Uitschrijfreden, 'Nog geldig')
 			END AS op_meaning
 	, 'patient_in_uit' AS op_origin
 FROM JHN_Conception.import.patient_in_uit
