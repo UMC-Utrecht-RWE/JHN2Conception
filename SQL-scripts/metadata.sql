@@ -2,9 +2,7 @@ CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_METADATA AS
 
 WITH META AS	(
 					SELECT 'presence_of_table' AS type_of_metadata UNION
-					SELECT 'presence_of_column' AS type_of_metadata UNION
-					SELECT 'list_of_values' AS type_of_metadata
-					
+					SELECT 'presence_of_column' AS type_of_metadata
 				)
 
 
@@ -43,8 +41,18 @@ WHERE
 	-- De metadata mag zelf niet mee
 	AND IC.table_name != 'METADATA'
 
+UNION ALL
+
+-- Add a the single list_of_values row
+SELECT 
+	'list_of_values' AS type_of_metadata
+	, 'PERSONS' AS tablename
+	, 'sex_at_instance_creation' AS columnname
+	, '' AS other
+	, STRING_AGG(DISTINCT sex_at_instance_creation, ' ') AS values
+FROM JHN_Conception.Conception.vw_PERSONS
+
 ORDER BY
-	M.type_of_metadata
-	, IC.table_name
-	, IC.column_name
+	1, 2, 3
+	
 	
