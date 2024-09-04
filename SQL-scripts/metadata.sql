@@ -43,14 +43,77 @@ WHERE
 
 UNION ALL
 
--- Add a the single list_of_values row
-SELECT 
-	'list_of_values' AS type_of_metadata
-	, 'PERSONS' AS tablename
-	, 'sex_at_instance_creation' AS columnname
-	, '' AS other
-	, STRING_AGG(DISTINCT sex_at_instance_creation, ' ') AS values
-FROM JHN_Conception.Conception.vw_PERSONS
+-- Add list_of_values rows
+
+-- PERSONS
+SELECT 'list_of_values' AS type_of_metadata, 'PERSONS' AS tablename, 'sex_at_instance_creation' AS columnname, '' AS other, STRING_AGG(DISTINCT sex_at_instance_creation, ' ') AS VALUES FROM JHN_Conception.Conception.vw_PERSONS
+UNION ALL
+
+--CDM_SOURCE
+SELECT 'list_of_values' AS type_of_metadata, 'CDM_SOURCE' AS tablename, 'data_access_provider_code' AS columnname, '' AS other, STRING_AGG(DISTINCT data_access_provider_code, ' ') AS values FROM JHN_Conception.Conception.vw_CDM_SOURCE
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'CDM_SOURCE' AS tablename, 'data_access_provider_name' AS columnname, '' AS other, STRING_AGG(DISTINCT data_access_provider_name, ' ') AS values FROM JHN_Conception.Conception.vw_CDM_SOURCE
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'CDM_SOURCE' AS tablename, 'data_source_name' AS columnname, '' AS other, STRING_AGG(DISTINCT data_source_name, ' ') AS values FROM JHN_Conception.Conception.vw_CDM_SOURCE
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'CDM_SOURCE' AS tablename, 'cdm_vocabulary_version' AS columnname, '' AS other, STRING_AGG(DISTINCT cdm_vocabulary_version, ' ') AS values FROM JHN_Conception.Conception.vw_CDM_SOURCE
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'CDM_SOURCE' AS tablename, 'cdm_version' AS columnname, '' AS other, STRING_AGG(DISTINCT cdm_version, ' ') AS values FROM JHN_Conception.Conception.vw_CDM_SOURCE
+UNION ALL
+
+-- EVENTS
+SELECT 'list_of_values' AS type_of_metadata, 'EVENTS' AS tablename, 'event_record_vocabulary' AS columnname, '' AS other, STRING_AGG(DISTINCT event_record_vocabulary, ' ') AS values FROM JHN_Conception.Conception.vw_EVENTS
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'EVENTS' AS tablename, 'meaning_of_event' AS columnname, '' AS other, STRING_AGG(DISTINCT meaning_of_event, ' ') AS values FROM JHN_Conception.Conception.vw_EVENTS
+UNION ALL
+
+--INSTANCE
+SELECT 'list_of_values' AS type_of_metadata, 'INSTANCE' AS tablename, 'included_in_instance' AS columnname, '' AS other, STRING_AGG(DISTINCT included_in_instance, ' ') AS values FROM JHN_Conception.Conception.vw_INSTANCE
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'INSTANCE' AS tablename, 'restriction_in_values' AS columnname, '' AS other, STRING_AGG(DISTINCT restriction_in_values, ' ') AS values FROM JHN_Conception.Conception.vw_INSTANCE
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'INSTANCE' AS tablename, 'source_table_name' AS columnname, '' AS other, STRING_AGG(DISTINCT source_table_name, ' ') AS values FROM JHN_Conception.Conception.vw_INSTANCE
+UNION ALL
+
+--MEDICAL_OBSERVATIONS
+SELECT 'list_of_values' AS type_of_metadata, 'MEDICAL_OBSERVATIONS' AS tablename, 'mo_meaning' AS columnname, '' AS other, STRING_AGG(DISTINCT mo_meaning, ' ') AS values FROM JHN_Conception.Conception.vw_MEDICAL_OBSERVATIONS
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'MEDICAL_OBSERVATIONS' AS tablename, 'mo_record_vocabulary' AS columnname, '' AS other, STRING_AGG(DISTINCT mo_record_vocabulary, ' ') AS values FROM JHN_Conception.Conception.vw_MEDICAL_OBSERVATIONS
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'MEDICAL_OBSERVATIONS' AS tablename, 'mo_source_table' AS columnname, '' AS other, STRING_AGG(DISTINCT mo_source_table, ' ') AS values FROM JHN_Conception.Conception.vw_MEDICAL_OBSERVATIONS
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'MEDICAL_OBSERVATIONS' AS tablename, 'mo_unit' AS columnname, '' AS other, STRING_AGG(DISTINCT mo_unit, ' ') AS values FROM JHN_Conception.Conception.vw_MEDICAL_OBSERVATIONS
+UNION ALL
+
+--MEDICINES
+SELECT 'list_of_values' AS type_of_metadata, 'MEDICINES' AS tablename, 'meaning_of_drug_record' AS columnname, '' AS other, STRING_AGG(DISTINCT meaning_of_drug_record, ' ') AS values FROM JHN_Conception.Conception.vw_MEDICINES
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'MEDICINES' AS tablename, 'presc_quantity_unit' AS columnname, '' AS other, STRING_AGG(DISTINCT presc_quantity_unit, ' ') AS values FROM JHN_Conception.Conception.vw_MEDICINES
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'MEDICINES' AS tablename, 'prescriber_speciality_vocabulary' AS columnname, '' AS other, STRING_AGG(DISTINCT prescriber_speciality_vocabulary, ' ') AS values FROM JHN_Conception.Conception.vw_MEDICINES
+UNION ALL
+
+--OBSERVATION_PERIODS
+SELECT 'list_of_values' AS type_of_metadata, 'OBSERVATION_PERIODS' AS tablename, 'op_meaning' AS columnname, '' AS other, STRING_AGG(DISTINCT op_meaning, ' ') AS values FROM JHN_Conception.Conception.vw_OBSERVATION_PERIODS
+UNION ALL
+
+--PROCEDURES
+SELECT 'list_of_values' AS type_of_metadata, 'PROCEDURES' AS tablename, 'meaning_of_procedure' AS columnname, '' AS other, STRING_AGG(DISTINCT meaning_of_procedure, ' ') AS values FROM JHN_Conception.Conception.vw_PROCEDURES
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'PROCEDURES' AS tablename, 'procedure_code_vocabulary' AS columnname, '' AS other, STRING_AGG(DISTINCT procedure_code_vocabulary, ' ') AS values FROM JHN_Conception.Conception.vw_PROCEDURES
+UNION ALL
+
+--VACCINES
+SELECT 'list_of_values' AS type_of_metadata, 'VACCINES' AS tablename, 'meaning_of_vx_record' AS columnname, '' AS other, STRING_AGG(DISTINCT meaning_of_vx_record, ' ') AS values FROM JHN_Conception.Conception.vw_VACCINES
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'VACCINES' AS tablename, 'vx_dose' AS columnname, '' AS other, STRING_AGG(DISTINCT vx_dose, ' ') AS values FROM JHN_Conception.Conception.vw_VACCINES
+UNION ALL
+
+--VISIT_OCCURRENCE
+SELECT 'list_of_values' AS type_of_metadata, 'VISIT_OCCURRENCE' AS tablename, 'meaning_of_visit' AS columnname, '' AS other, STRING_AGG(DISTINCT meaning_of_visit, ' ') AS values FROM JHN_Conception.Conception.vw_VISIT_OCCURRENCE
+UNION ALL
+SELECT 'list_of_values' AS type_of_metadata, 'VISIT_OCCURRENCE' AS tablename, 'speciality_of_visit_vocabulary' AS columnname, '' AS other, STRING_AGG(DISTINCT speciality_of_visit_vocabulary, ' ') AS values FROM JHN_Conception.Conception.vw_VISIT_OCCURRENCE
+
 
 ORDER BY
 	1, 2, 3

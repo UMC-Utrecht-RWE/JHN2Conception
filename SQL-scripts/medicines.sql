@@ -4,8 +4,8 @@ SELECT
     Patient_id_umc AS person_id    
     , NULL AS medicinal_product_id -- We don't use the product table here 
     , Atc_code AS medicinal_product_atc_code
-    , Afleverdatum AS date_dispensing
-    , strftime(Voorschrijfdatum , '%Y%m%d') AS date_prescription
+    , strftime(Afleverdatum, '%Y%m%d') AS date_dispensing
+    , strftime(Voorschrijfdatum, '%Y%m%d') AS date_prescription
     , NULL AS disp_number_medicinal_product -- We don't have dispensing information in JHN    
     
     -- The following two columns (prescribed quantity per day and prescribed duration days) are not coded as such in JHN.
