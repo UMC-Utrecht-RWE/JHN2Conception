@@ -2,7 +2,7 @@
 Mapping JHN to Conception
 
 ## Background
-We mapped the JHN (Julius Huisartsen Netwerk) to the conception CDM. This is a very brief readme on how to use the code. More background can be read in the ETL specification file (which is currently not in Github).
+We mapped the JHN (Julius Huisartsen Netwerk) to the conception CDM. This is a very brief readme on how to use the code. More background can be read in the ETL specification file (which can be found in the '/Documentation' folder).
 
 ## Table mapping
 Tables from JHN are mapped to Conception CDM as follows:
