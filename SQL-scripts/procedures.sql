@@ -7,11 +7,8 @@ SELECT
 	, COALESCE(Vektis_code, Nhg_code) AS procedure_code
 	, CASE	WHEN Vektis_code IS NOT NULL THEN 'Vektis COD322-NZA, code-element 008' -- Meta doesn't say what vektis table, but it looks like that one
 			WHEN Nhg_code IS NOT NULL THEN 'NHG15'
-			END AS procedure_code_vocabulary
-	-- Replace any non character or numerical values otherwise the brittle levelchecks will fail
-	-- Edit 27/07/2024: Replaced meaning_of_procedure with a default value else the levelcheck files become too big
+			END AS procedure_code_vocabulary	
 	, 'GP_procedure' AS meaning_of_procedure
-	--, REGEXP_REPLACE(Omschrijving, '[^a-zA-Z0-9]', ' ', 'g') AS meaning_of_procedure
 	, 'verrichting' AS origin_of_procedure
 	, Contact_id AS visit_occurrence_id
 FROM JHN_Conception.import.verrichting

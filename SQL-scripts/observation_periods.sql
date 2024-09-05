@@ -4,6 +4,7 @@ SELECT
 	Patient_id_umc AS person_id
 	, strftime(Inschrijfdatum, '%Y%m%d') AS op_start_date
 	, strftime(Uitschrijfdatum, '%Y%m%d') AS op_end_date
+	/* No longer used, but I keep it in the script as a reference
 	, CASE	WHEN Uitschrijfreden = 'A' THEN 'Naar andere arts'
 			WHEN Uitschrijfreden = 'V' THEN 'Verhuizing'
 			WHEN Uitschrijfreden = 'O' THEN 'Overleden'
@@ -14,6 +15,8 @@ SELECT
 			WHEN Uitschrijfreden = 'X' THEN 'Onbekend'
 			ELSE COALESCE(Uitschrijfreden, 'Nog geldig')
 			END AS op_meaning
+	*/
+	, 'Registered_at_GP' AS op_meaning
 	, 'patient_in_uit' AS op_origin
 FROM JHN_Conception.import.patient_in_uit
 

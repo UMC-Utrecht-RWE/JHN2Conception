@@ -11,7 +11,7 @@ SELECT
 	-- There is no status at discharge in JHN
 	, NULL AS status_at_discharge
 	, NULL AS status_at_discharge_vocabulary
-	, COALESCE(REGEXP_REPLACE(Contactsoort_Omschr, '[^a-zA-Z0-9]', ' ', 'g'), 'contact') AS meaning_of_visit
+	, 'GP_visit_or_contact' AS meaning_of_visit
 	, 'contact' AS origin_of_visit
 FROM JHN_Conception.import.contact
 
