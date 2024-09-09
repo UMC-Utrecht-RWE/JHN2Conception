@@ -34,7 +34,7 @@ SELECT
     , 'medicatie' AS origin_of_drug_record
     , Specialisme AS prescriber_speciality
     , 'NHG12' AS prescriber_speciality_vocabulary
-    , Contact_id AS visit_occurrence_id
+    , CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) AS visit_occurrence_id
 FROM
     JHN_Conception.import.medicatie
 	
@@ -48,4 +48,5 @@ WHERE
 	-- not after 01/07/2024
 	AND Voorschrijfdatum < '2024/07/01'
 */	
+
 

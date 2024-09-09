@@ -21,7 +21,7 @@ SELECT
 	-- Isn't this information not already in the mo_source_table column?
 	, 'bepaling' AS mo_origin
 	-- Since a lot of the laboratory values are not measured directly by the GP they're often not linked to the visit directly
-	, B.Contact_id AS visit_occurrence_id
+	, CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) AS visit_occurrence_id
 FROM JHN_Conception.import.bepaling B
 
 LEFT JOIN JHN_Conception.NHG.NHG45 NHG

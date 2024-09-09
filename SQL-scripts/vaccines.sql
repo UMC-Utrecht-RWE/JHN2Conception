@@ -13,8 +13,8 @@ SELECT
 	-- The next line seems to catch the lot, but depends on that very specific notiation
 	, NULLIF(SPLIT_PART(Gebruiksvoorschrift, 'Batchnummer: ', 2), '') AS vx_lot_num
 	, 'Vaccination_as_administerd_or_reported_back_to_the_GP' AS meaning_of_vx_record
-	, 'medicatie' AS origin_of_vx_record
-	, Contact_id AS visit_occurrence_id
+	, 'medicatie' AS origin_of_vx_record	
+	, CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) AS visit_occurrence_id
 FROM JHN_Conception.import.medicatie
 
 WHERE 
