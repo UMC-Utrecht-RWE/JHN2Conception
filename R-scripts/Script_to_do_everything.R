@@ -11,11 +11,11 @@ library(here)
 
 source("./R-scripts/Read_sas7bdat_into_DuckDB_one_by_one.R", local = TRUE)
 
-###################################################
-#### Stap 2: De NHG refenretietabellen inlezen ####
-###################################################
+###############################################
+#### Stap 2: De refenretietabellen inlezen ####
+###############################################
 
-source("./R-scripts/NHG_referentietabel_inlezen.R", local = TRUE)
+source("./R-scripts/Referentietabellen_inlezen.R", local = TRUE)
 
 ###############################################################################################
 #### Stap 3: Ook de lege Conception tabellen aanmaken (dit is nodig voor de metadata tabel) ###
