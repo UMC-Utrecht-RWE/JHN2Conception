@@ -1,5 +1,5 @@
 #################################################################################################################################################################
-#### Here we're going to crate the empty Conception tables                                                                                                   ####
+#### Here we're going to create the empty Conception tables                                                                                                  ####
 #### We need these tables for the metadata table because it has all tables and columns (we don't create all tables for JHN, but they need to be in the meta) ####
 #################################################################################################################################################################
 

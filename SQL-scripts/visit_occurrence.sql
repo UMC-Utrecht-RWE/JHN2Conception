@@ -16,7 +16,7 @@ WITH DEDOUBLE AS (
 						, 'contact' AS origin_of_visit	
 						
 						/* There are duplicate combinations of import_id and Contact_id in the older data. We cannot have this in Conception
-						* so we remove add a rownumber and keep only the most recently edited line
+						* so we add a rownumber and keep only the most recently edited line
 						*/
 						, ROW_NUMBER() OVER (PARTITION BY CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) ORDER BY Wijzigings_datumtijd DESC) AS DubbelVolgnummer
 					FROM JHN_Conception.import.contact C

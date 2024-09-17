@@ -1,11 +1,23 @@
 # .gitignore
+
+# The folder we use for the levelchecks
 Data\ characterisation/
+
+# The duckdb that we're going to fill
 Duck_Database/
+
+# The output folder where we'll put the output
 Output/
+
+# Not used R-scripts
 R-scripts/Archive/
 R-scripts/Poging_via_R/
+
+# Not used SQL scripts
 SQL-scripts/Archive/
 SQL-scripts/Uitzoekwerk/
+
+# Miscellaneous stuff
 Rest/
 .Rproj.user/
 .Rhistory
