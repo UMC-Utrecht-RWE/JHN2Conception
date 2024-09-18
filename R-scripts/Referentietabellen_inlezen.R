@@ -21,8 +21,8 @@ write_excel_to_duckdb <- function(excel_file, db_file) {
   # Maak verbinding met de DuckDB-database
   con <- dbConnect(duckdb::duckdb(), db_file)
   
-  # Creëer het NHG-schema als het nog niet bestaat
-  dbExecute(con, "CREATE SCHEMA IF NOT EXISTS NHG")
+  # Creëer het ReferenceTables-schema als het nog niet bestaat
+  dbExecute(con, "CREATE SCHEMA IF NOT EXISTS ReferenceTables")
   
   # Krijg de namen van alle sheets in het Excel-bestand
   sheets <- excel_sheets(excel_file)
@@ -30,13 +30,15 @@ write_excel_to_duckdb <- function(excel_file, db_file) {
   # Lees elke sheet in en schrijf deze weg naar de DuckDB-database
   for (sheet in sheets) {
     # Lees de huidige sheet in
-    data <- read_excel(excel_file, sheet = sheet)
+    data <- read_excel(excel_file, sheet = sheet) %>%
+      # Fix some dumd hardcoded NULL values that shoukd be NA
+      mutate(across(where(is.character), ~na_if(., "NULL")))
     
     # Even wat output
     cat('NHG referentietabel ', sheet, ' inlezen en wegschrijven.\n')
     
-    # Schrijf de data weg naar DuckDB in het NHG-schema
-    dbWriteTable(con, SQL(paste0("NHG.", sheet)), data, overwrite = TRUE)
+    # Schrijf de data weg naar DuckDB in het ReferenceTables-schema
+    dbWriteTable(con, SQL(paste0("ReferenceTables.", sheet)), data, overwrite = TRUE)
   }
   
   # Sluit de databaseverbinding
@@ -68,8 +70,8 @@ cod322 <- read_excel("./OtherSources/Vektis COD322-NZA code-element 008.xlsx", s
 # Maak verbinding met de DuckDB-database
 con <- dbConnect(duckdb::duckdb(), "./Duck_Database/JHN_Conception.duckdb")
 
-# En wegschrijven naar DuckDB in het NHG-schema, niet helemaal correct, misschien moeten we dit vervangen door een referentie schema ofzo.
-dbWriteTable(con, SQL("NHG.cod322NZA"), cod322, overwrite = TRUE)
+# En wegschrijven naar DuckDB in het ReferenceTables-schema
+dbWriteTable(con, SQL("ReferenceTables.cod322NZA"), cod322, overwrite = TRUE)
 
 # Sluit de databaseverbinding
 dbDisconnect(con, shutdown = TRUE)

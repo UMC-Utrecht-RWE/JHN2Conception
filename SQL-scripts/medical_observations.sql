@@ -24,7 +24,7 @@ SELECT
 	, CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) AS visit_occurrence_id
 FROM JHN_Conception.import.bepaling B
 
-LEFT JOIN JHN_Conception.NHG.NHG45 NHG
+LEFT JOIN JHN_Conception.ReferenceTables.NHG45 NHG
 	-- NHG referentietabel voor de unit
 	ON NHG.bepalingsnr = B.NHGnummer
 /*
