@@ -31,7 +31,7 @@ write_excel_to_duckdb <- function(excel_file, db_file) {
   for (sheet in sheets) {
     # Lees de huidige sheet in
     data <- read_excel(excel_file, sheet = sheet) %>%
-      # Fix some dumd hardcoded NULL values that shoukd be NA
+      # Fix some dumb hardcoded NULL values that shoukd be NA
       mutate(across(where(is.character), ~na_if(., "NULL")))
     
     # Even wat output
