@@ -61,6 +61,11 @@ verwijzing <- read_sas("/mnt/data/inbox/transfer-2024-07-03-09-38-am/verwijzing.
 # Even alle dataframe namen lezen
 dataframes <- Filter(function(x) is.data.frame(get(x)), ls())
 
+# Create the database folder if it doesn't exist
+if(!dir.exists("./Duck_Database")) {
+  dir.create("./Duck_Database")
+}
+
 # Maak verbinding met DuckDB
 con <- dbConnect(duckdb::duckdb(), './Duck_Database/JHN_Conception.duckdb')
 
