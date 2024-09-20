@@ -17,6 +17,9 @@ R-scripts/Poging_via_R/
 SQL-scripts/Archive/
 SQL-scripts/Uitzoekwerk/
 
+# The complete Z-index, this doesn't need to go into github
+OtherSources/Z-index/
+
 # Miscellaneous stuff
 Rest/
 .Rproj.user/
