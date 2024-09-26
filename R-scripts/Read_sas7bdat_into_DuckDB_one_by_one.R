@@ -79,7 +79,7 @@ for (tabel in dataframes) {
   df <- get(tabel)
 
   # Create some verbosity
-  cat(paste0('En wegschrijven naar duckDB: ', Sys.time(), ", ", tabel, "\n"))
+  cat(paste0('Writing to duckDB: ', Sys.time(), ", ", tabel, "\n"))
   
   # And write to duckdb
   dbWriteTable(con, Id(schema = "import", table = tabel), df, overwrite = TRUE)

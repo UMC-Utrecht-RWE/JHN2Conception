@@ -123,11 +123,11 @@ BST004T <- read_fwf("./OtherSources/Z-index/BST004T",
 
 # See http://z-index.nl/documentatie/bestandsbeschrijvingen/bestand?bestandsnaam=BST070T
 
-if(!file.exists("./OtherSources/Z-index/BST070T\n")) {
+if(!file.exists("./OtherSources/Z-index/BST070T")) {
   stop("BST070T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
 }
 
-cat('Write Z-index BST070T to the database')
+cat('Write Z-index BST070T to the database\n')
 
 BST070T <- read_fwf("./OtherSources/Z-index/BST070T",
                     fwf_positions(start = c(1, 5, 6, 14, 22, 30, 38, 46, 54),
