@@ -4,7 +4,7 @@ SELECT
 	Patient_id_umc AS person_id
 	, strftime(Voorschrijfdatum, '%Y%m%d') AS vx_record_date
 	, strftime(Afleverdatum, '%Y%m%d') AS vx_admin_date
-	, Atc_code AS vx_atc
+	, SUBSTRING(COALESCE(BST711T.ATCODE, Atc_code), 1, 3) AS vx_atc
 	, NULL AS vx_type
 	, Omschrijving AS vx_text
 	, NULL AS medicinal_product_id -- Same as the medicines table, we might fill this one in later when we fillt eh products table
@@ -15,11 +15,25 @@ SELECT
 	, 'Vaccination_as_administerd_or_reported_back_to_the_GP' AS meaning_of_vx_record
 	, 'medicatie' AS origin_of_vx_record	
 	, CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) AS visit_occurrence_id
-FROM JHN_Conception.import.medicatie
+FROM JHN_Conception.import.medicatie M
+
+LEFT JOIN JHN_Conception.ReferenceTables.BST004T
+	-- Join to BST004T to get to the HPKODE from the Z-index
+	ON M.Zindex_nummer = BST004T.ATKODE
+	
+LEFT JOIN JHN_Conception.ReferenceTables.BST070T
+	-- Join to BST070T to get to the GPKODE from the Z-index
+	-- Take either the HPKODE from BST004T or from medicatie
+	ON COALESCE(BST004T.HPKODE, LPAD(CAST(CAST(Hpk AS INT) AS VARCHAR), 7, '0')) = BST070T.HPKODE
+	
+LEFT JOIN JHN_Conception.ReferenceTables.BST711T
+	-- Join to BST711T to get to the ATCODE (ATC-code) from the Z-index
+	-- Take either the GPKODE from BST070T or from medicatie	
+	ON COALESCE(BST711T.GPKODE, LPAD(CAST(CAST(Gpk AS INT) AS VARCHAR), 8, '0')) = BST070T.GPKODE  
 
 WHERE 
 	-- ATC-code should not start with J07 otherwise it's a vaccination (which should go into the vaccination table)
-	SUBSTRING(Atc_code, 1, 3) = 'J07'
+	SUBSTRING(COALESCE(BST711T.ATCODE, Atc_code), 1, 3) = 'J07'
 /*	
 	-- Filter on date > 01/01/2019
 	AND YEAR(COALESCE(Voorschrijfdatum, Afleverdatum)) >= 2019
