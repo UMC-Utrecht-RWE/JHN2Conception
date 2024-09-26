@@ -137,7 +137,7 @@ SELECT
 	, NULL AS laterality_of_event  -- Not applicable
 	, 'Journaalregel' AS meaning_of_event
 	, 'journaalregel' AS origin_of_event
-	, J.Contact_id AS visit_occurrence_id
+	, CAST(J.import_id AS INT) || ':' || CAST(J.Contact_id AS INT) AS visit_occurrence_id
 FROM JHN_Conception.import.journaalregel JR
 
 INNER JOIN JHN_Conception.import.journaal J

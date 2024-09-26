@@ -10,7 +10,7 @@ SELECT
 			END AS procedure_code_vocabulary	
 	, 'GP_procedure' AS meaning_of_procedure
 	, 'verrichting' AS origin_of_procedure
-	, Contact_id AS visit_occurrence_id
+	, CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) AS visit_occurrence_id
 FROM JHN_Conception.import.verrichting
 
 /*
