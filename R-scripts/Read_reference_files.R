@@ -60,7 +60,7 @@ write_excel_to_duckdb(excel_file, db_file)
 #### Also read the COD322-NZA code-element 008 reference table ####
 ###################################################################
 
-cat('Write Vektis COD322-NZA code-element 008 to the database')
+cat('Write Vektis COD322-NZA code-element 008 to the database\n')
 
 # Since this is a single sheet file I won't do this using a function
 cod322 <- read_excel("./OtherSources/Vektis COD322-NZA code-element 008.xlsx", skip = 15) %>%
@@ -101,7 +101,7 @@ if(!file.exists("./OtherSources/Z-index/BST004T")) {
   stop("BST004T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
 }
 
-cat('Write Z-index BST004T to the database')
+cat('Write Z-index BST004T to the database\n')
 
 BST004T <- read_fwf("./OtherSources/Z-index/BST004T",
                     fwf_positions(start = c(1, 5, 6, 14, 22, 29, 37, 42, 45, 48, 53, 56, 59, 67, 68, 76, 77, 78, 79, 80, 81, 86, 87, 92, 100, 110, 122, 127, 132, 137
@@ -123,7 +123,7 @@ BST004T <- read_fwf("./OtherSources/Z-index/BST004T",
 
 # See http://z-index.nl/documentatie/bestandsbeschrijvingen/bestand?bestandsnaam=BST070T
 
-if(!file.exists("./OtherSources/Z-index/BST070T")) {
+if(!file.exists("./OtherSources/Z-index/BST070T\n")) {
   stop("BST070T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
 }
 
@@ -147,7 +147,7 @@ if(!file.exists("./OtherSources/Z-index/BST711T")) {
   stop("BST711T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
 }
 
-cat('Write Z-index BST711T to the database')
+cat('Write Z-index BST711T to the database\n')
 
 BST711T <- read_fwf("./OtherSources/Z-index/BST711T",
                     fwf_positions(start = c(1, 5, 6, 14, 22, 25, 28, 31, 34, 41, 48, 73, 76, 84, 87, 95, 99, 105, 113, 116, 119, 127, 130, 133),

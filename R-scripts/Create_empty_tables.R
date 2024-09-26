@@ -4,9 +4,9 @@
 #################################################################################################################################################################
 
 # Load libraries
-suppressMessages(llibrary(here))    # Set our working folder
-suppressMessages(llibrary(DBI))     # For the database operations
-suppressMessages(llibrary(duckdb))  # To communicatie with duckdb
+suppressMessages(library(here))    # Set our working folder
+suppressMessages(library(DBI))     # For the database operations
+suppressMessages(library(duckdb))  # To communicatie with duckdb
 
 ##########################################################
 #### Read the function that will load the SQL scripts ####

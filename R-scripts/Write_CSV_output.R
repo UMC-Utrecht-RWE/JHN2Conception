@@ -3,19 +3,24 @@
 ##########################################################################
 
 # Load libraries
-suppressMessages(llibrary(here))    # Set our working folder
-suppressMessages(llibrary(DBI))     # For the database operations
-suppressMessages(llibrary(duckdb))  # To communicatie with duckdb
-suppressMessages(llibrary(dplyr))   # Dplyr obviously
+suppressMessages(library(here))    # Set our working folder
+suppressMessages(library(DBI))     # For the database operations
+suppressMessages(library(duckdb))  # To communicatie with duckdb
+suppressMessages(library(dplyr))   # Dplyr obviously
 
 ##########################
 #### The actual scipt ####
 ##########################
 
-# We'll create a out folder with todays data
+# We'll create an output folder with todays date
 OutputFolder <- paste0("./Output/", Sys.Date())
 
-# Only create the folder if it does not exist
+# Create the main output folder if it doesn't exist
+if(!dir.exists('./Output/')) {
+  dir.create('./Output/')
+}
+
+# Create todays folder if it does not exist
 if(!dir.exists(OutputFolder)) {
   dir.create(OutputFolder)
 }

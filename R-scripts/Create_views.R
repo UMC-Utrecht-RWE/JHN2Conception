@@ -3,9 +3,9 @@
 #################################################################################################
 
 # Load libraries
-suppressMessages(llibrary(here))    # Set our working folder
-suppressMessages(llibrary(DBI))     # For the database operations
-suppressMessages(llibrary(duckdb))  # To communicatie with duckdb
+suppressMessages(library(here))    # Set our working folder
+suppressMessages(library(DBI))     # For the database operations
+suppressMessages(library(duckdb))  # To communicatie with duckdb
 
 ##########################################################
 #### Read the function that will read the SQL scripts ####
@@ -17,10 +17,13 @@ source("./R-functions/getSQL.R")
 #### And create the schema and views  ####
 ##########################################
 
-cat('Creating the Conception views in the database. This may take a while.')
+cat('Creating the Conception views in the database. This may take a while.\n')
 
 # List all the scipts
 SQLScripts <- list.files("./SQL-scripts", pattern = "\\.sql$", full.names = TRUE)
+
+# The script './SQL-scripts/metadata.sql' should be run last, so I'll move it to the end of the list
+SQLScripts <- c(SQLScripts[SQLScripts != './SQL-scripts/metadata.sql'], './SQL-scripts/metadata.sql')
 
 # Connect to the database
 con <- dbConnect(duckdb::duckdb(), './Duck_Database/JHN_Conception.duckdb')
