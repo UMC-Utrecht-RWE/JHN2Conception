@@ -1,37 +1,37 @@
-###################################################################################################################################################
-#### In dit script zorgen we ervoor dat alle stappen voor het genereren van de JHN Conception CSV files worden doorlopen in de juiste volgorde ####
-###################################################################################################################################################
+########################################################################################################
+#### In this script we run all scripts in the right order to create the Conception output CSV files ####
+########################################################################################################
 
-# Waar werken we vanuit?
-library(here)
+# Set the working directory to the project folder
+suppressMessages(library(here))
 
-#############################################################################
-#### Stap 1: Het inlezen van de sa7bdat files zoals die aangeleverd zijn ####
-#############################################################################
+################################################
+#### Step 1: Read the sa7bdat source files  ####
+################################################
 
 source("./R-scripts/Read_sas7bdat_into_DuckDB_one_by_one.R", local = TRUE)
 
-###############################################
-#### Stap 2: De refenretietabellen inlezen ####
-###############################################
+##########################################
+#### Step 2: Read the reference files ####
+##########################################
 
-source("./R-scripts/Referentietabellen_inlezen.R", local = TRUE)
+source("./R-scripts/Read_reference_files.R", local = TRUE)
 
-###############################################################################################
-#### Stap 3: Ook de lege Conception tabellen aanmaken (dit is nodig voor de metadata tabel) ###
-###############################################################################################
+#########################################################################################
+#### Step 3: Create the empty Concepion tables (we need these for the metadata table) ###
+#########################################################################################
 
 source("./R-scripts/Create_empty_tables.R", local = TRUE)
 
-#####################################
-#### Stap 4: Alle views aanmaken ####
-#####################################
+##################################
+#### Step 4: Create the views ####
+##################################
 
 source("./R-scripts/Create_views.R", local = TRUE)
 
-###########################################################
-#### Stap 5: De views inlezen en wegschrijven naar csv ####
-###########################################################
+#######################################################
+#### Step 5: Read the views and output them to CSV ####
+#######################################################
 
 source("./R-scripts/Write_CSV_output.R", local = TRUE)
 

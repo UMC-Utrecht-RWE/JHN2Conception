@@ -4,31 +4,33 @@
 #################################################################################################################################################################
 
 # Load libraries
-library(here) # Set our working folder
-library(DBI) # For the database operations
-library(duckdb) # To communicatie with duckdb
+suppressMessages(llibrary(here))    # Set our working folder
+suppressMessages(llibrary(DBI))     # For the database operations
+suppressMessages(llibrary(duckdb))  # To communicatie with duckdb
 
-#################################################
-#### Even ons mooie SQL inleesscript inlezen ####
-#################################################
+##########################################################
+#### Read the function that will load the SQL scripts ####
+##########################################################
 
 source("./R-functions/getSQL.R")
 
-######################
-#### En uitvoeren ####
-######################
+#####################################
+#### And create the empty tables ####
+#####################################
+
+cat('Creating the empty Conception tables')
 
 # Connect to the database
 con <- dbConnect(duckdb::duckdb(), './Duck_Database/JHN_Conception.duckdb')
 
-# Conception schema aanmaken als hij nog niet bestaat (doet hij wel uiteraard)
+# Create the Conception schema if it doesn't exist
 dbExecute(con, "CREATE SCHEMA IF NOT EXISTS Conception")
 
-# Het sql-script inlezen
+# Read the SQL script
 SQLQuery <- getSQL('./Conception_Schema/Conception_2.2_schema_SQL.sql')
   
-# Uitvoeren
+# Run it against the database
 dbExecute(con, SQLQuery)
 
-# Sluit de verbinding
+# And close the connection
 dbDisconnect(con)

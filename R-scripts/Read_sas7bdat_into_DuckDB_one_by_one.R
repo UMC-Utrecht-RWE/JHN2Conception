@@ -3,17 +3,17 @@
 ##############################################################
 
 # Laad de packages
-library(duckdb) # For the database
-library(dplyr) # Magic
-library(here) # Working directory
-library(haven) # To read the SAS7BDAT files
+suppressMessages(library(duckdb)) # For the database
+suppressMessages(library(dplyr))  # Magic
+suppressMessages(library(here))   # Working directory
+suppressMessages(library(haven))  # To read the SAS7BDAT files
 
 ##########################################################################################################
 #### Read each file into a dataframe.                                                                 ####
 #### I'm doing this one by one for now so that I can fix errors as I go.                              ####
 ##########################################################################################################
 
-cat('SAS bestanden inlezen....\n')
+cat('Reading the SAS files, this may take a while....\n')
 
 cat(paste0(Sys.time(), " allergie\n"))
 allergie <- read_sas("/mnt/data/inbox/transfer-2024-07-03-09-38-am/allergie.sas7bdat", encoding = "latin1") %>% mutate_if(is.character, ~ na_if(., ''))
@@ -58,7 +58,7 @@ verwijzing <- read_sas("/mnt/data/inbox/transfer-2024-07-03-09-38-am/verwijzing.
 #### And import into duckDB ####
 ################################
 
-# Even alle dataframe namen lezen
+# Get all the dataframes in the environment
 dataframes <- Filter(function(x) is.data.frame(get(x)), ls())
 
 # Create the database folder if it doesn't exist
@@ -66,24 +66,24 @@ if(!dir.exists("./Duck_Database")) {
   dir.create("./Duck_Database")
 }
 
-# Maak verbinding met DuckDB
+# Create the connection to DuckDB
 con <- dbConnect(duckdb::duckdb(), './Duck_Database/JHN_Conception.duckdb')
 
-# Import schema aanmaken
+# Create the import schema if it doesn't exist
 dbExecute(con, "CREATE SCHEMA IF NOT EXISTS import")
 
-# Loopje voor alle dataframes
+# Loop through all the dataframes
 for (tabel in dataframes) {
   
-  # We maken een dataframe df met de inhoud van de tabel
+  # Create a dataframe with the content of the dataframe we're looping for now
   df <- get(tabel)
 
-  # Even wat output zodat we weten wat we aan het doen zijn
+  # Create some verbosity
   cat(paste0('En wegschrijven naar duckDB: ', Sys.time(), ", ", tabel, "\n"))
   
-  # En wegschrijven naar duckdb
+  # And write to duckdb
   dbWriteTable(con, Id(schema = "import", table = tabel), df, overwrite = TRUE)
   } 
 
-# Sluit de verbinding
+# And close the connection
 dbDisconnect(con)

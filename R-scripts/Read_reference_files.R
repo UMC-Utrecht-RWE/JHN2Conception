@@ -1,44 +1,44 @@
-###########################################################
-#### Hier lezen we de NHG vocabulary in naar de duckdb ####
-###########################################################
+########################################################
+#### Here we write all reference tables to database ####
+########################################################
 
 ########################
 #### Load libraries ####
 ########################
 
-library(readxl) # To read the xlsx files
-library(DBI) # To connect to the DuckDB
-library(duckdb) # To connect to the DuckDB
-library(here) # Working directory
-library(dplyr) # Magic
-library(readr) # To read the z-index tables
+suppressMessages(library(readxl)) # To read the xlsx files
+suppressMessages(library(DBI))    # To connect to the DuckDB
+suppressMessages(library(duckdb)) # To connect to the DuckDB
+suppressMessages(library(here))   # Working directory
+suppressMessages(library(dplyr))  # Magic
+suppressMessages(library(readr))  # To read the z-index tables
 
-##################################################################################
-#### Functie om een Excel-bestand in te lezen en weg te schrijven naar DuckDB ####
-##################################################################################
+################################################################################
+#### Function to read all sheets from a excel-file and write them to duckdb ####
+################################################################################
 
 write_excel_to_duckdb <- function(excel_file, db_file) {
 
-  # Maak verbinding met de DuckDB-database
+  # Connect to database
   con <- dbConnect(duckdb::duckdb(), db_file)
   
-  # Creëer het ReferenceTables-schema als het nog niet bestaat
+  # Create the ReferenceTables-schema if it doesn't exist
   dbExecute(con, "CREATE SCHEMA IF NOT EXISTS ReferenceTables")
   
-  # Krijg de namen van alle sheets in het Excel-bestand
+  # What is the name of the sheet?
   sheets <- excel_sheets(excel_file)
   
-  # Lees elke sheet in en schrijf deze weg naar de DuckDB-database
+  # Read the sheet
   for (sheet in sheets) {
     # Lees de huidige sheet in
     data <- read_excel(excel_file, sheet = sheet) %>%
       # Fix some dumb hardcoded NULL values that shoukd be NA
       mutate(across(where(is.character), ~na_if(., "NULL")))
     
-    # Even wat output
-    cat('NHG referentietabel ', sheet, ' inlezen en wegschrijven.\n')
+    # Some verbosity
+    cat('Reading NHG reference table ', sheet, ' and writing it to the database.\n')
     
-    # Schrijf de data weg naar DuckDB in het ReferenceTables-schema
+    # And write the sheet to the database
     dbWriteTable(con, SQL(paste0("ReferenceTables.", sheet)), data, overwrite = TRUE)
   }
   
@@ -46,35 +46,37 @@ write_excel_to_duckdb <- function(excel_file, db_file) {
   dbDisconnect(con, shutdown = TRUE)
 }
 
-# Specificaties van het Excel-bestand en de DuckDB-database
+# Where is the sheet and the database?
 excel_file <- "./OtherSources/NHG.xlsx"
 db_file <- "./Duck_Database/JHN_Conception.duckdb"
 
-#############################
-#### Voer de functie uit ####
-#############################
+##########################
+#### Run the function ####
+##########################
 
 write_excel_to_duckdb(excel_file, db_file)
 
-####################################################################
-#### Ook de COD322-NZA code-element 008 inlezen en wegschrijven ####
-####################################################################
+###################################################################
+#### Also read the COD322-NZA code-element 008 reference table ####
+###################################################################
 
-# Dit is een bestand met slechts een sheet, dus dit doen we niet via een functie
+cat('Write Vektis COD322-NZA code-element 008 to the database')
+
+# Since this is a single sheet file I won't do this using a function
 cod322 <- read_excel("./OtherSources/Vektis COD322-NZA code-element 008.xlsx", skip = 15) %>%
-  # Even wat mooiere namen geven aan de kolommen (wie haalt het in z'n hoofd om spaties in kolomnamen te zetten?)
+  # Assign some better names (why would you create a column name with a space in it?)
   rename(Toelichting1 = "Toelichting 1"
          , Toelichting2 = "Toelichting 2"  
          , AardMutatie = "Aard mutatie"   
          , RedenMutatie = "Reden mutatie")
 
-# Maak verbinding met de DuckDB-database
+# Connect to database
 con <- dbConnect(duckdb::duckdb(), "./Duck_Database/JHN_Conception.duckdb")
 
-# En wegschrijven naar DuckDB in het ReferenceTables-schema
+# And write it to DuckDB in the ReferenceTables-schema
 dbWriteTable(con, SQL("ReferenceTables.cod322NZA"), cod322, overwrite = TRUE)
 
-# Sluit de databaseverbinding
+# Close the connection
 dbDisconnect(con, shutdown = TRUE)
 
 #################################################
@@ -98,6 +100,8 @@ if(!dir.exists("./OtherSources/Z-index")) {
 if(!file.exists("./OtherSources/Z-index/BST004T")) {
   stop("BST004T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
 }
+
+cat('Write Z-index BST004T to the database')
 
 BST004T <- read_fwf("./OtherSources/Z-index/BST004T",
                     fwf_positions(start = c(1, 5, 6, 14, 22, 29, 37, 42, 45, 48, 53, 56, 59, 67, 68, 76, 77, 78, 79, 80, 81, 86, 87, 92, 100, 110, 122, 127, 132, 137
@@ -123,6 +127,8 @@ if(!file.exists("./OtherSources/Z-index/BST070T")) {
   stop("BST070T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
 }
 
+cat('Write Z-index BST070T to the database')
+
 BST070T <- read_fwf("./OtherSources/Z-index/BST070T",
                     fwf_positions(start = c(1, 5, 6, 14, 22, 30, 38, 46, 54),
                                   end = c(4, 5, 13, 21, 29, 37, 45, 53, 64),
@@ -141,6 +147,8 @@ if(!file.exists("./OtherSources/Z-index/BST711T")) {
   stop("BST711T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
 }
 
+cat('Write Z-index BST711T to the database')
+
 BST711T <- read_fwf("./OtherSources/Z-index/BST711T",
                     fwf_positions(start = c(1, 5, 6, 14, 22, 25, 28, 31, 34, 41, 48, 73, 76, 84, 87, 95, 99, 105, 113, 116, 119, 127, 130, 133),
                                   end = c(4, 5, 13, 21, 24, 27, 30, 33, 40, 47, 72, 75, 83, 86, 94, 98, 104, 112, 115, 118, 126, 129, 132, 160),
@@ -158,7 +166,7 @@ dbWriteTable(con, SQL("ReferenceTables.BST004T"), BST004T, overwrite = TRUE)
 dbWriteTable(con, SQL("ReferenceTables.BST070T"), BST070T, overwrite = TRUE)
 dbWriteTable(con, SQL("ReferenceTables.BST711T"), BST711T, overwrite = TRUE)
 
-# Sluit de databaseverbinding
+# Close the connection
 dbDisconnect(con, shutdown = TRUE)
 
 

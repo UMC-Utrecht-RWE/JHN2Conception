@@ -1,21 +1,21 @@
-####################################################################################
-#### Nu gaan we de views weer inlezen uit DuckDB en wegschrijven naar CSV files ####
-####################################################################################
+##########################################################################
+#### Here we read the data from the views and write them to CSV files ####
+##########################################################################
 
 # Load libraries
-library(here) # Set our working folder
-library(DBI) # For the database operations
-library(duckdb) # To communicatie with duckdb
-library(dplyr) # Dplyr obviously
+suppressMessages(llibrary(here))    # Set our working folder
+suppressMessages(llibrary(DBI))     # For the database operations
+suppressMessages(llibrary(duckdb))  # To communicatie with duckdb
+suppressMessages(llibrary(dplyr))   # Dplyr obviously
 
-#########################
-#### En aan het werk ####
-#########################
+##########################
+#### The actual scipt ####
+##########################
 
-# Output folder maken (met de datum erin om te voorkomen dat we oude data gaan overschrijven die we willen houden)
+# We'll create a out folder with todays data
 OutputFolder <- paste0("./Output/", Sys.Date())
 
-# Alleen aanmaken als hij niet bestaat uiteraard
+# Only create the folder if it does not exist
 if(!dir.exists(OutputFolder)) {
   dir.create(OutputFolder)
 }
@@ -23,26 +23,26 @@ if(!dir.exists(OutputFolder)) {
 # Connect to the database
 con <- dbConnect(duckdb::duckdb(), './Duck_Database/JHN_Conception.duckdb')
 
-# Alle views bepalen, de views waar we in geinteresseerd zijn beginen met vw_
+# Read the names of all the views (starting with vw_)
 views <- dbListTables(con) %>%
   grep('vw_', ., value = TRUE)
 
-# Nu inlezen en wegschrijven in een for-loop
+# Read all the views and output them to CSV files using a for loop
 for (view in views) {
   
-  # Het output bestand moet niet die vw_ prefix krijgen
+  # The output file should not have the vw_ prefix
   CSVNaam <- sub('vw_', '', view)
   
-  # Even wat output zodat we weten wat we aan het doen zijn
+  # Some verbosity
   cat(paste0(Sys.time(), ", ", CSVNaam, "\n"))
   
-  # Inlezen
+  # Read the view
   data <- tbl(con, paste0('Conception.', view)) %>%
     collect()
   
-  # En wegschrijven
+  # Write to disk
   write.csv(data, paste0(OutputFolder, '/', CSVNaam, '.csv'), row.names = FALSE, na = '')
 }
 
-# Sluit de verbinding
+# Close the connection
 dbDisconnect(con)
