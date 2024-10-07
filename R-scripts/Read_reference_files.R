@@ -85,10 +85,10 @@ dbDisconnect(con, shutdown = TRUE)
 
 # Since the Z-index will not be included in github because of licencing limitations I'll check if the folder and files exist
 if(!dir.exists("./OtherSources/Z-index")) {
-  stop("Z-index folder (./OtherSources/Z-index) does not exist. Create it first and add the Z-index files (BST004T, BST070T and BST711T).")
+  stop("Z-index folder (./OtherSources/Z-index) does not exist. Create it first and add the Z-index files (BST004T, BST070T, BST711T and BST801T).")
 }
 
-# We need the following tables: 004, 070 and 711
+# We need the following tables: 004, 070, 711 and 801
 # The column with the name EMPTY did not have a column name, but since R will assign an even uglier name (like X24) I'll call it EMPTY
 
 #################
@@ -158,6 +158,26 @@ BST711T <- read_fwf("./OtherSources/Z-index/BST711T",
   # There's an empty final line that we need to skip
   filter(!is.na(MUTKOD))
 
+#################
+#### BST801T ####
+#################
+
+# See http://z-index.nl/documentatie/bestandsbeschrijvingen/bestand?bestandsnaam=BST711T
+
+if(!file.exists("./OtherSources/Z-index/BST801T")) {
+  stop("BST801T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
+}
+
+cat('Write Z-index BST801T to the database\n')
+
+BST711T <- read_fwf("./OtherSources/Z-index/BST801T",
+                    fwf_positions(start = c(1, 5, 6, 14, 94, 174, 175),
+                                  end = c(4, 5, 13, 93, 173, 174, 192),
+                                  col_names = c('BSTNUM', 'MUTKOD', 'ATCODE', 'ATOMS', 'ATOMSE', 'ATKIND', 'EMPTY'))
+                    , show_col_types = FALSE) %>%
+  # There's an empty final line that we need to skip
+  filter(!is.na(MUTKOD))
+
 # Connect to the DuckDB-database
 con <- dbConnect(duckdb::duckdb(), "./Duck_Database/JHN_Conception.duckdb")
 
@@ -165,6 +185,7 @@ con <- dbConnect(duckdb::duckdb(), "./Duck_Database/JHN_Conception.duckdb")
 dbWriteTable(con, SQL("ReferenceTables.BST004T"), BST004T, overwrite = TRUE)
 dbWriteTable(con, SQL("ReferenceTables.BST070T"), BST070T, overwrite = TRUE)
 dbWriteTable(con, SQL("ReferenceTables.BST711T"), BST711T, overwrite = TRUE)
+dbWriteTable(con, SQL("ReferenceTables.BST801T"), BST711T, overwrite = TRUE)
 
 # Close the connection
 dbDisconnect(con, shutdown = TRUE)
