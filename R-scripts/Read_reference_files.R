@@ -170,7 +170,7 @@ if(!file.exists("./OtherSources/Z-index/BST801T")) {
 
 cat('Write Z-index BST801T to the database\n')
 
-BST711T <- read_fwf("./OtherSources/Z-index/BST801T",
+BST801T <- read_fwf("./OtherSources/Z-index/BST801T",
                     fwf_positions(start = c(1, 5, 6, 14, 94, 174, 175),
                                   end = c(4, 5, 13, 93, 173, 174, 192),
                                   col_names = c('BSTNUM', 'MUTKOD', 'ATCODE', 'ATOMS', 'ATOMSE', 'ATKIND', 'EMPTY'))

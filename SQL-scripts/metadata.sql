@@ -11,7 +11,7 @@ SELECT DISTINCT
 	, IC.table_name AS tablename
 	, CASE WHEN M.type_of_metadata != 'presence_of_table' THEN IC.column_name END AS columnname
 	, NULL AS other	
-	, CASE 	WHEN LOWER(IC.table_name) IN ('eurocat', 'person_relationships', 'products', 'survey_id', 'survey_observations') THEN 'No'
+	, CASE 	WHEN LOWER(IC.table_name) IN ('eurocat', 'person_relationships', 'survey_id', 'survey_observations') THEN 'No'
 			WHEN LOWER(IC.table_name) NOT IN ('eurocat', 'person_relationships', 'products', 'survey_id', 'survey_observations') AND M.type_of_metadata = 'precense_of_column' THEN 'Yes'
 			WHEN LOWER(IC.table_name) = 'cdm_source' AND IC.column_name IN ('data_dictionary_link', 'etl_link') THEN 'No'
 			WHEN LOWER(IC.table_name) = 'events' AND IC.column_name IN ('present_on_admission', 'laterality_of_event') THEN 'No'
@@ -24,6 +24,11 @@ SELECT DISTINCT
 			--WHEN LOWER(IC.table_name) = 'procedures' AND IC.column_name IN ('', '', '', '', '', '', '', '', '', '', '') THEN 'No'
 			WHEN LOWER(IC.table_name) = 'vaccines' AND IC.column_name IN ('vx_type', 'medicinal_product_id', 'vx_manufacturer') THEN 'No'
 			WHEN LOWER(IC.table_name) = 'visit_occurrence' AND IC.column_name IN ('status_at_discharge', 'status_at_discharge_vocabulary') THEN 'No'
+			WHEN LOWER(IC.table_name) = 'products' AND IC.column_name IN ('unit_of_presentation_type', 'unit_of_presentation_num', 'administration_dose_form'
+				, 'administration_route', 'medicinal_product_atc_code', 'subst2_atc_code', 'subst3_atc_code', 'subst1_amount_per_form', 'subst2_amount_per_form'
+				, 'subst3_amount_per_form', 'subst1_amount_unit', 'subst2_amount_unit', 'subst3_amount_unit', 'subst1_concentration', 'subst2_concentration'
+				, 'subst3_concentration', 'subst1_concentration_unit', 'subst2_concentration_unit', 'subst3_concentration_unit', 'concentration_total_content'
+				, 'concentration_total_content_unit', 'medicinal_product_manufacturer') THEN 'No'			
 			ELSE 'Yes'
 			END AS values
 FROM information_schema.columns IC

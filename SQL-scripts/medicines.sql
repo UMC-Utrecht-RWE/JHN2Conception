@@ -2,7 +2,7 @@ CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_MEDICINES AS
 
 SELECT
     Patient_id_umc AS person_id    
-    , NULL AS medicinal_product_id -- We don't use the product table here 
+    , COALESCE(BST711T.ATCODE, Atc_code) AS medicinal_product_id -- We also use the ATC-code as the id of the products table 
     , COALESCE(BST711T.ATCODE, Atc_code) AS medicinal_product_atc_code
     , strftime(Afleverdatum, '%Y%m%d') AS date_dispensing
     , strftime(Voorschrijfdatum, '%Y%m%d') AS date_prescription
