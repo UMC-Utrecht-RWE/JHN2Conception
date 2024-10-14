@@ -121,7 +121,7 @@ WHERE
 	-- Einddatum mag nooit voor begindatum zijn
 	AND end_date_record >= start_date_record
 
-UNION
+UNION ALL
 
 SELECT 
 	JR.Patient_id_umc  AS person_id
