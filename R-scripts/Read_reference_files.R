@@ -162,7 +162,7 @@ BST711T <- read_fwf("./OtherSources/Z-index/BST711T",
 #### BST801T ####
 #################
 
-# See http://z-index.nl/documentatie/bestandsbeschrijvingen/bestand?bestandsnaam=BST711T
+# See http://z-index.nl/documentatie/bestandsbeschrijvingen/bestand?bestandsnaam=BST801T
 
 if(!file.exists("./OtherSources/Z-index/BST801T")) {
   stop("BST801T does not exist. Add it to the to the Z-index folder first (./OtherSources/Z-index).")
@@ -185,7 +185,7 @@ con <- dbConnect(duckdb::duckdb(), "./Duck_Database/JHN_Conception.duckdb")
 dbWriteTable(con, SQL("ReferenceTables.BST004T"), BST004T, overwrite = TRUE)
 dbWriteTable(con, SQL("ReferenceTables.BST070T"), BST070T, overwrite = TRUE)
 dbWriteTable(con, SQL("ReferenceTables.BST711T"), BST711T, overwrite = TRUE)
-dbWriteTable(con, SQL("ReferenceTables.BST801T"), BST711T, overwrite = TRUE)
+dbWriteTable(con, SQL("ReferenceTables.BST801T"), BST801T, overwrite = TRUE)
 
 # Close the connection
 dbDisconnect(con, shutdown = TRUE)
