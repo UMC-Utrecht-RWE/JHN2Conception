@@ -2,7 +2,9 @@
 Mapping JHN to Conception
 
 ## Background
-We mapped the JHN (Julius Huisartsen Netwerk) to the conception CDM. This is a very brief readme on how to use the code. More background can be read in the ETL specification file (which can be found in the '/Documentation' folder).
+We mapped the JHN (Julius Huisartsen Netwerk) to the conception CDM. 
+This is a very brief readme on how to use the code. More background can be read in the ETL specification file (which can be found in the '/Documentation' folder).
+
 
 ## Table mapping
 Tables from JHN are mapped to Conception CDM as follows:
@@ -37,3 +39,9 @@ To run the code:
 
 The output is saved in CSV files in the /Output folder.
 
+## About
+This is an open source repository mantained by the RWE department. 
+
+For the forked version used by Health Data Space Utrecht, access here:
+
+https://github.com/HDSU-Health-Data-Space-Utrecht/JHN2Conception
