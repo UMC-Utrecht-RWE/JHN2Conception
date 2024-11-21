@@ -11,7 +11,6 @@ Tables from JHN are mapped to Conception CDM as follows:
 | ------------------ | --------------------- | -----------------|
 | Bepaling           | MEDICAL_OBSERVATIONS  |                  |
 | Contact	         | VISIT_OCCURENCE       |                  |
-| Episode            | EVENTS                |                  |
 | Journaal           | EVENTS                |                  |
 | Journaalregel      | EVENTS                |                  |
 | Medicatie          | MEDICINES             | VACCINES         |
@@ -40,6 +39,9 @@ To run the code:
 
 The output is saved in CSV files in the /Output folder.
 
+## Important note: The use of the episode table for EVENTS was removed
+Originally the episode table was used in the creation of the EVENTS table. After talks with JHN this mapping was removed. All relevant information on the recent events is in the journaal and journaalregel table. The episode table is normally only used when we want to determine comorbidity, but this is now done by taking the Episode_icpc from the journaal table. This makes the episode table redundant, which is good since this is a very complex table with a high risk of errors
+
 ## Known issues
 
 ### Issue 1: Free text in MEDICINES table
@@ -56,12 +58,11 @@ There is no semantic harmonization. To do this we need to map the NHG table 12, 
 Not all columns with important information from JHN could be mapped to Conception, for example all kind of free text fields have no place in Conception.
 
 ### Issue 4: Unmapped tables
-Not all JHN tables were mapped (Allergie, Contraindicatie, Ruite and Verwijzing). There were a few reasons for this:
+Not all JHN tables were mapped (Allergie, Contraindicatie, Episode, Ruite and Verwijzing). There were a few reasons for this:
 - Low data quality, issues that I encountered could not be explained
-- JHN never uses this tables for research, so there is very limited knowledge on how these tables should be interpreted
+- Some tables are hardly ever used, so there is very limited knowledge on how these tables should be interpreted
 - Tables were not relevant for conception
 If we do want to use these tables we need to have a better understanding of the contents and limitations of these tables.
 
-### Issue 5: Evaluation of episode (EVENTS) timelines
-The EVENTS table has two sources, one of them being ‘episode’. This table is quite complex and requires a lot of logic and coding to transform it into the EVENTS table. I’m pretty sure the timelines I created now are pretty good (like 95% correct), especially for the more recent rows that are in scope now. However, this is my estimate. To have a better insight into this we need to manually compare a large amount of EVENTS rows from Conception to rows in JHN and determine what would be correct. It really needs to be a large amount because there are so many exceptions on so many different systems. If the quality is well below my estimated 95% we should fix the code. I think it will cost two persons a full day to make a good evaluation.
+
 
