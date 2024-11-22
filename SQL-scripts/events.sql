@@ -43,7 +43,7 @@ UNION ALL
 
 SELECT 
 	J.Patient_id_umc AS person_id
-	, strftime(J.Journaal_datumtijd, '%Y%m%d')  AS start_date_record
+	, strftime(J.Episode_datum, '%Y%m%d')  AS start_date_record
 	, NULL AS end_date_record
 	, J.Episode_icpc AS event_code
 	, 'Icpc' AS event_record_vocabulary
