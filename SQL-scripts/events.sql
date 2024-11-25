@@ -23,6 +23,7 @@ INNER JOIN JHN_Conception.import.journaal J
 	-- To get the visit_occurrence_id
 	ON J.Journaal_id = JR.Journaal_id
 	AND J.Import_id = JR.Import_id
+	AND J.Patient_id_umc = JR.Patient_id_umc
 	
 WHERE 	
 	-- Event_code of event_free_text moet zijn gevuld (of beiden)
