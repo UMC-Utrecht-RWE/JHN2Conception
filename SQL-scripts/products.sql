@@ -32,3 +32,5 @@ SELECT
 	, NULL AS concentration_total_content_unit
 	, NULL AS medicinal_product_manufacturer
 FROM JHN_Conception.ReferenceTables.BST801T
+
+

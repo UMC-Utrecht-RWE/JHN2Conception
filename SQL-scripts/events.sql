@@ -67,3 +67,5 @@ WHERE
 	-- not after 01/07/2024
 	AND J.Journaal_Datumtijd < '2024/07/01'
 */
+
+
