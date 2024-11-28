@@ -45,6 +45,9 @@ WHERE
 	
 	-- De metadata mag zelf niet mee
 	AND IC.table_name != 'METADATA'
+	
+	-- No empty columns
+	AND CASE WHEN M.type_of_metadata != 'presence_of_table' THEN IC.column_name END IS NOT NULL
 
 UNION ALL
 
