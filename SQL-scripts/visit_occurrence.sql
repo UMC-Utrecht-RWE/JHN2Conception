@@ -3,7 +3,7 @@ CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_VISIT_OCCURRENCE AS
 WITH DEDOUBLE AS (
 					SELECT 
 						C.Patient_id_umc AS person_id
-						, CAST(C.import_id AS INT) || ':' || CAST(C.Contact_id AS INT) AS visit_occurrence_id
+						, CONCAT(CAST(Contact_id AS INT), ':', CAST(import_id AS INT), ':', CAST(Patient_id_umc AS INT)) AS visit_occurrence_id
 						, strftime(C.Datum, '%Y%m%d') AS visit_start_date
 						-- Same because a GP visit cannot take mutiple days
 						, strftime(C.Datum, '%Y%m%d') AS visit_end_date
@@ -18,7 +18,7 @@ WITH DEDOUBLE AS (
 						/* There are duplicate combinations of import_id and Contact_id in the older data. We cannot have this in Conception
 						* so we add a rownumber and keep only the most recently edited line
 						*/
-						, ROW_NUMBER() OVER (PARTITION BY CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) ORDER BY Wijzigings_datumtijd DESC) AS DubbelVolgnummer
+						, ROW_NUMBER() OVER (PARTITION BY CONCAT(CAST(Contact_id AS INT), ':', CAST(import_id AS INT), ':', C.Patient_id_umc)  ORDER BY Wijzigings_datumtijd DESC) AS DubbelVolgnummer
 					FROM JHN_Conception.import.contact C
 				)
 				
