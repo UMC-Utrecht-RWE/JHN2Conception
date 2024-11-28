@@ -1,6 +1,10 @@
 CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_PROCEDURES AS
 
-SELECT 
+/*
+ * We need to do a distinct here because the old 'Mondriaan' data allows for dupplicates, these are wrong, we have to leave just one
+ */
+
+SELECT DISTINCT
 	Patient_id_umc AS person_id
 	-- According to meta either billing date or actual procedure date
 	, strftime(Factuur_datum, '%Y%m%d') AS procedure_date
