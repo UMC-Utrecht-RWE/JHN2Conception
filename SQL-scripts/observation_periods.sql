@@ -1,6 +1,10 @@
 CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_OBSERVATION_PERIODS AS
 
-SELECT 
+/*
+ * Important note, we have dupplicate rows in JHN, I filter them here by doing a distict, but this is not really our problem
+ */
+
+SELECT DISTINCT
 	Patient_id_umc AS person_id
 	, strftime(Inschrijfdatum, '%Y%m%d') AS op_start_date
 	, strftime(Uitschrijfdatum, '%Y%m%d') AS op_end_date
