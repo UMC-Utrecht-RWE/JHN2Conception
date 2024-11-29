@@ -1,6 +1,10 @@
 CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_MEDICAL_OBSERVATIONS AS
 
-SELECT 
+/*
+ * We need to do a distict on this table because the (old) data contains errors, dupplicate rows
+ */
+
+SELECT DISTINCT
 	B.Patient_id_umc AS person_id
 	, strftime(B.Datum, '%Y%m%d') AS mo_date
 	, B.NHGnummer AS mo_code
@@ -21,7 +25,7 @@ SELECT
 	-- Isn't this information not already in the mo_source_table column?
 	, 'bepaling' AS mo_origin
 	-- Since a lot of the laboratory values are not measured directly by the GP they're often not linked to the visit directly
-	, CAST(import_id AS INT) || ':' || CAST(Contact_id AS INT) AS visit_occurrence_id
+	, CASE WHEN B.Contact_id IS NOT NULL THEN CONCAT(CAST(B.Contact_id AS INT), ':', CAST(B.import_id AS INT), ':', CAST(B.Patient_id_umc AS INT)) END AS visit_occurrence_id
 FROM JHN_Conception.import.bepaling B
 
 LEFT JOIN JHN_Conception.ReferenceTables.NHG45 NHG
