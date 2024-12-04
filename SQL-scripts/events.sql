@@ -1,7 +1,11 @@
 CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_EVENTS AS
 
-SELECT 
-	JR.Patient_id_umc  AS person_id
+/*
+ * We need to do a distinct here again because we have dupplicate lines. This is not something we can realy fix but distinct it
+ */
+
+SELECT DISTINCT
+	J.Patient_id_umc  AS person_id
 	, strftime(JR.Journaal_Datumtijd, '%Y%m%d') AS start_date_record
 	, NULL AS end_date_record -- No end date
 	--If there is no Icpc on the journaalregel we'll take the journaal ICPC
@@ -14,9 +18,9 @@ SELECT
 	, CASE WHEN	COALESCE(JR.Icpc, J.Icpc) IS NULL THEN JR.Tekst END AS event_free_text 
 	, NULL AS present_on_admission -- Not applicable
 	, NULL AS laterality_of_event  -- Not applicable
-	, 'Journaalregel' AS meaning_of_event
+	, 'journaalregel' AS meaning_of_event
 	, 'journaalregel' AS origin_of_event
-	, CAST(J.import_id AS INT) || ':' || CAST(J.Contact_id AS INT) AS visit_occurrence_id
+	, CASE WHEN J.Contact_id IS NOT NULL THEN CONCAT(CAST(J.Contact_id AS INT), ':', CAST(J.import_id AS INT), ':', CAST(J.Patient_id_umc AS INT)) END AS visit_occurrence_id
 FROM JHN_Conception.import.journaalregel JR
 
 INNER JOIN JHN_Conception.import.journaal J
@@ -27,7 +31,7 @@ INNER JOIN JHN_Conception.import.journaal J
 	
 WHERE 	
 	-- Event_code of event_free_text moet zijn gevuld (of beiden)
-	(JR.Icpc IS NOT NULL OR JR.Tekst IS NOT NULL)
+	(JR.Icpc IS NOT NULL OR J.Icpc IS NOT NULL OR JR.Tekst IS NOT NULL)
 /*	
 	-- Filter on date > 01/01/2019
 	AND YEAR(JR.Journaal_Datumtijd) >= 2019
@@ -42,7 +46,7 @@ UNION ALL
  * Here we add the Journaal lines otherwise we might miss the Icpc codes of the episode
  */
 
-SELECT 
+SELECT DISTINCT 
 	J.Patient_id_umc AS person_id
 	, strftime(J.Episode_datum, '%Y%m%d')  AS start_date_record
 	, NULL AS end_date_record
@@ -52,9 +56,9 @@ SELECT
 	, NULL AS event_free_text
 	, NULL AS present_on_admission
 	, NULL AS laterality_of_event
-	, 'Journaal' AS meaning_of_event
-	, 'Journaal' AS origin_of_event
-	, CAST(J.import_id AS INT) || ':' || CAST(J.Contact_id AS INT) AS visit_occurrence_id
+	, 'journaal' AS meaning_of_event
+	, 'journaal' AS origin_of_event
+	, CASE WHEN J.Contact_id IS NOT NULL THEN CONCAT(CAST(J.Contact_id AS INT), ':', CAST(J.import_id AS INT), ':', CAST(J.Patient_id_umc AS INT)) END AS visit_occurrence_id
 FROM JHN_Conception.import.journaal J
 
 WHERE 	
