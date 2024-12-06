@@ -5,6 +5,13 @@ CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_PRODUCTS AS
  * renders most of these columns also useless (because we need more specific produc info for that), so NULL.
  */ 
 
+WITH ALLATC AS 	(
+					-- This is slightly ugly, but we need to do this because we have ATC-codes in JHN that are missing in the Z-index
+					SELECT DISTINCT
+						Atc_code
+					FROM JHN_Conception.import.medicatie
+				)
+
 SELECT 
 	CAST(ATKODE AS INT) AS medicinal_product_id
 	, BST801T.ATOMSE AS medicinal_product_name
@@ -50,14 +57,14 @@ LEFT JOIN JHN_Conception.ReferenceTables.BST801T
 UNION ALL
 
 SELECT 
-	ATCODE AS medicinal_product_id
+	COALESCE(ATCODE, Atc_code) AS medicinal_product_id
 	, ATOMSE AS medicinal_product_name
 	, NULL AS unit_of_presentation_type
 	, NULL AS unit_of_presentation_num
 	, NULL AS administration_dose_form
 	, NULL AS administration_route
 	, NULL AS medicinal_product_atc_code
-	, ATCODE AS subst1_atc_code
+	, COALESCE(ATCODE, Atc_code) AS subst1_atc_code
 	, NULL AS subst2_atc_code
 	, NULL AS subst3_atc_code
 	, NULL AS subst1_amount_per_form
@@ -76,6 +83,10 @@ SELECT
 	, NULL AS concentration_total_content_unit
 	, NULL AS medicinal_product_manufacturer
 FROM JHN_Conception.ReferenceTables.BST801T
+
+FULL OUTER JOIN ALLATC
+	-- Add the ATC-codes that are missing from the Z-index
+	ON ALLATC.Atc_code = BST801T.ATCODE
 
 
 
