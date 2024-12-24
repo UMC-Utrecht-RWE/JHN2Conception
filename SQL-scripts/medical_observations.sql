@@ -10,10 +10,10 @@ SELECT DISTINCT
 	, B.NHGnummer AS mo_code
 	, 'NHG45' AS mo_record_vocabulary
 	, 'bepaling' AS mo_source_table
-	, CASE	WHEN B.Uitslag IS NOT NULL THEN 'Uitslag'
+	, CASE	WHEN COALESCE(NHGA.Antwoord, B.Uitslag) IS NOT NULL THEN 'Uitslag'
 			WHEN B.Uitslag_tekst IS NOT NULL THEN 'Uitslag_tekst'
 			END AS mo_source_column
-	, CASE	WHEN B.Uitslag IS NOT NULL THEN REPLACE(B.Uitslag, '.', ',')
+	, CASE	WHEN COALESCE(NHGA.Antwoord, B.Uitslag) IS NOT NULL THEN REPLACE(COALESCE(NHGA.Antwoord, B.Uitslag), '.', ',')
 			WHEN B.Uitslag_tekst IS NOT NULL THEN B.Uitslag_tekst
 			END AS mo_source_value
 	-- We can actuially get the unit by importing the NHG tables thus getting the vocabulary
@@ -31,6 +31,12 @@ FROM JHN_Conception.import.bepaling B
 LEFT JOIN JHN_Conception.ReferenceTables.NHG45 NHG
 	-- NHG referentietabel voor de unit
 	ON NHG.bepalingsnr = B.NHGnummer
+	
+LEFT JOIN JHN_Conception.ReferenceTables.NHG45antwoord NHGA
+	-- Add the answers where the answer is a category, not a value or a string
+	ON NHGA.Antwoordnr = TRY_CAST(B.Uitslag AS DOUBLE)
+	-- Only use this column if the Vraagtype is either 'EK' (een keuze) or 'MK' (meer keuze)
+	AND B.Vraagtype IN ('EK', 'MK')
 /*
 WHERE
 	-- Filter on date > 01/01/2019
