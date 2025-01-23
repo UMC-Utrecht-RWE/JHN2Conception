@@ -1,0 +1,3 @@
+# Github statistics doesn't pick up on my SQL files
+*.sql linguist-language=SQL
+*.r linguist-language=R

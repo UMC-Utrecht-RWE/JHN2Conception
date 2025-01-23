@@ -1,34 +1,36 @@
 #################################################################################################################################################################
-#### Here we're going to crate the empty Conception tables                                                                                                   ####
+#### Here we're going to create the empty Conception tables                                                                                                  ####
 #### We need these tables for the metadata table because it has all tables and columns (we don't create all tables for JHN, but they need to be in the meta) ####
 #################################################################################################################################################################
 
 # Load libraries
-library(here) # Set our working folder
-library(DBI) # For the database operations
-library(duckdb) # To communicatie with duckdb
+suppressMessages(library(here))    # Set our working folder
+suppressMessages(library(DBI))     # For the database operations
+suppressMessages(library(duckdb))  # To communicatie with duckdb
 
-#################################################
-#### Even ons mooie SQL inleesscript inlezen ####
-#################################################
+##########################################################
+#### Read the function that will load the SQL scripts ####
+##########################################################
 
 source("./R-functions/getSQL.R")
 
-######################
-#### En uitvoeren ####
-######################
+#####################################
+#### And create the empty tables ####
+#####################################
+
+cat('Creating the empty Conception tables')
 
 # Connect to the database
 con <- dbConnect(duckdb::duckdb(), './Duck_Database/JHN_Conception.duckdb')
 
-# Conception schema aanmaken als hij nog niet bestaat (doet hij wel uiteraard)
+# Create the Conception schema if it doesn't exist
 dbExecute(con, "CREATE SCHEMA IF NOT EXISTS Conception")
 
-# Het sql-script inlezen
+# Read the SQL script
 SQLQuery <- getSQL('./Conception_Schema/Conception_2.2_schema_SQL.sql')
   
-# Uitvoeren
+# Run it against the database
 dbExecute(con, SQLQuery)
 
-# Sluit de verbinding
+# And close the connection
 dbDisconnect(con)

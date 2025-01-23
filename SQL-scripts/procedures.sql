@@ -1,6 +1,10 @@
 CREATE OR REPLACE VIEW JHN_Conception.Conception.vw_PROCEDURES AS
 
-SELECT 
+/*
+ * We need to do a distinct here because the old 'Mondriaan' data allows for dupplicates, these are wrong, we have to leave just one
+ */
+
+SELECT DISTINCT
 	Patient_id_umc AS person_id
 	-- According to meta either billing date or actual procedure date
 	, strftime(Factuur_datum, '%Y%m%d') AS procedure_date
@@ -10,7 +14,7 @@ SELECT
 			END AS procedure_code_vocabulary	
 	, 'GP_procedure' AS meaning_of_procedure
 	, 'verrichting' AS origin_of_procedure
-	, Contact_id AS visit_occurrence_id
+	, CASE WHEN Contact_id IS NOT NULL THEN CONCAT(CAST(Contact_id AS INT), ':', CAST(import_id AS INT), ':', CAST(Patient_id_umc AS INT)) END AS visit_occurrence_id
 FROM JHN_Conception.import.verrichting
 
 /*

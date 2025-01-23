@@ -13,7 +13,6 @@ Tables from JHN are mapped to Conception CDM as follows:
 | ------------------ | --------------------- | -----------------|
 | Bepaling           | MEDICAL_OBSERVATIONS  |                  |
 | Contact	         | VISIT_OCCURENCE       |                  |
-| Episode            | EVENTS                |                  |
 | Journaal           | EVENTS                |                  |
 | Journaalregel      | EVENTS                |                  |
 | Medicatie          | MEDICINES             | VACCINES         |
@@ -25,23 +24,19 @@ JHN tables not mentioned are not used, Conception tables not mentioned are not f
 
 ## Prerequisites
 
-- R
+- R and RStudio
 - JHN source files in SAS (sas7bdat) format
 - R libraries: DBI, dplyr, duckdb, haven, here, readxl
+- The following Z-index files / tables: BST004T, BST070T, BST711T and BST801T
 
+**IMPORTANT:** Because of licencing limitations the Z-index files are not included in this repo!
 
 ## Running the code
 
 To run the code:
+- Create the ./OtherSources/Z-index folder and add the Z-index files (at least BST004T, BST070T, BST711T and BST801T) to it
 - Open the project (JHN_to_Conception.Rproj)
 - Adjust the location of the source files in the Read_sas7bdat_into_DuckDB_one_by_one.R scipt
 - Open and run the script 'Script_to_do_everything.R' (in the folder 'R-scripts')
 
 The output is saved in CSV files in the /Output folder.
-
-## About
-This is an open source repository mantained by the RWE department. 
-
-For the forked version used by Health Data Space Utrecht, access here:
-
-https://github.com/HDSU-Health-Data-Space-Utrecht/JHN2Conception
