@@ -29,7 +29,7 @@ SELECT
 				END AS restriction_in_values
 	, NULL AS list_of_values
 	, NULL AS restriction_condition
-FROM JHN_Conception.information_schema.columns
+FROM information_schema.columns
 
 WHERE
 	-- Alleen van het import schema
