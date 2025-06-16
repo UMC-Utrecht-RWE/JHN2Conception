@@ -12,7 +12,8 @@ SELECT DISTINCT
 	, CASE WHEN M.type_of_metadata != 'presence_of_table' THEN IC.column_name END AS columnname
 	, NULL AS other	
 	, CASE 	WHEN LOWER(IC.table_name) IN ('eurocat', 'person_relationships', 'survey_id', 'survey_observations') THEN 'No'
-			WHEN LOWER(IC.table_name) NOT IN ('eurocat', 'person_relationships', 'products', 'survey_id', 'survey_observations') AND M.type_of_metadata = 'precense_of_column' THEN 'Yes'
+			WHEN LOWER(IC.table_name) NOT IN ('eurocat', 'person_relationships', 'survey_id', 'survey_observations') AND M.type_of_metadata = 'presence_of_table' THEN 'Yes'
+			WHEN LOWER(IC.table_name) NOT IN ('eurocat', 'person_relationships', 'survey_id', 'survey_observations') AND M.type_of_metadata = 'precense_of_column' THEN 'Yes'
 			WHEN LOWER(IC.table_name) = 'cdm_source' AND IC.column_name IN ('data_dictionary_link', 'etl_link') THEN 'No'
 			WHEN LOWER(IC.table_name) = 'events' AND IC.column_name IN ('present_on_admission', 'laterality_of_event') THEN 'No'
 			WHEN LOWER(IC.table_name) = 'instance' AND IC.column_name IN ('restriction_in_values', 'list_of_values', 'restriction_condition') THEN 'No'
